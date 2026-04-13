@@ -1,0 +1,1044 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RTMapsDiagram version="4.8.0" EngineVersion="4.11" xmlns="http://schemas.intempora.com/RTMaps/2011/RTMapsFiles" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.intempora.com/RTMaps/2011/RTMapsFiles http://www.intempora.com/schemas/RTMaps/2011/RTMapsDiagram.xsd">
+  <RequiredPackages>
+    <File Version="5.0.1"><![CDATA[/opt/rtmaps/packages/rtmaps_can_processing.pck]]><Relative><![CDATA[%RTMAPS_INSTDIR%/packages/rtmaps_can_processing.pck]]></Relative></File>
+    <File Version="2.4.0"><![CDATA[/opt/rtmaps/packages/rtmaps_can_SocketCAN.pck]]><Relative><![CDATA[%RTMAPS_INSTDIR%/packages/rtmaps_can_SocketCAN.pck]]></Relative></File>
+    <File Version="6.0.3"><![CDATA[/opt/rtmaps/packages/rtmaps_canfd_processing.pck]]><Relative><![CDATA[%RTMAPS_INSTDIR%/packages/rtmaps_canfd_processing.pck]]></Relative></File>
+    <File Version="4.4.7"><![CDATA[/opt/rtmaps/packages/rtmaps_python_bridge/rtmaps_python_bridge.pck]]><Relative><![CDATA[%RTMAPS_INSTDIR%/packages/rtmaps_python_bridge/rtmaps_python_bridge.pck]]></Relative></File>
+  </RequiredPackages>
+  <RequiredMacroPackages>
+    <File><![CDATA[/home/autera-admin/github/EcoCAR-CAV/Macro-Packages/ucr_constants.rtmc]]><Relative><![CDATA[%RTMAPS_DIAGRAMDIR%/../../Macro-Packages/ucr_constants.rtmc]]></Relative></File>
+  </RequiredMacroPackages>
+  <EngineProperties>
+    <Property LongName="Engine.startTimespeed" Type="1">1000</Property>
+    <Property LongName="Engine.startTime" Type="1">0</Property>
+    <Property LongName="Engine.session" Type="3"><![CDATA[unspecified]]></Property>
+    <Property LongName="Engine.recordingAtStart" Type="0">true</Property>
+    <Property LongName="Engine.recording" Type="0">true</Property>
+    <Property LongName="Engine.sequentialStart" Type="0">false</Property>
+    <Property LongName="Engine.shutdownTimeout" Type="1">10000000</Property>
+    <Property LongName="Engine.autoDetectStartTime" Type="0">true</Property>
+    <Property LongName="Engine.coreFunctionsToSaveInDiag" Type="4"><![CDATA[0|-1]]></Property>
+    <Property LongName="Engine.useUTCTimeReference" Type="0">false</Property>
+    <Property LongName="Engine.fastForwardThreshold" Type="1">2000</Property>
+    <Property LongName="Engine.fastRewindThreshold" Type="1">-2000</Property>
+    <Property LongName="Engine.priorityClass" Type="4"><![CDATA[3|0|Shared Time|Preemptive|Auto]]></Property>
+    <Property LongName="Engine.posixTimerThread" Type="4"><![CDATA[3|0|Auto|Timer Interval|Real Time Clock]]></Property>
+    <Property LongName="Engine.posixRealTimeClockIrqFrequency" Type="4"><![CDATA[4|0|1024|2048|4096|8192]]></Property>
+    <Property LongName="Engine.posixPreemptiveSchedulingPolicy" Type="4"><![CDATA[2|0|FIFO|Round Robin]]></Property>
+    <Property LongName="Engine.windowsUsePerformanceCounter" Type="0">true</Property>
+  </EngineProperties>
+  <ClocksManagement>
+    <Property LongName="ClocksManagement.activeClock" Type="4"><![CDATA[1|0|RTMaps_standard_clock]]></Property>
+  </ClocksManagement>
+  <MacroComponent InstanceName="kmph_to_mph_1" Model="kmph_to_mph" x="360" y="216" z="0">
+    <PropertyOverload LongName="autoStart" Type="0">true</PropertyOverload>
+    <InputPropertyOverload LongName="kmph.readerType" Type="1">0</InputPropertyOverload>
+    <InputPropertyOverload LongName="kmph.subsampling" Type="1">1</InputPropertyOverload>
+    <OutputPropertyOverload LongName="mph.subsampling" Type="1">1</OutputPropertyOverload>
+    <OutputPropertyOverload LongName="mph.fifosize" Type="1">16</OutputPropertyOverload>
+    <OutputPropertyOverload LongName="mph.periodic" Type="0">false</OutputPropertyOverload>
+  </MacroComponent>
+  <Component InstanceName="CAN2" Model="socketcan2" Version="2.4.0" x="672" y="488" z="0">
+    <Input LongName="CAN2.i_frame" Name="i_frame">
+      <Property LongName="CAN2.i_frame.readerType" Type="1">0</Property>
+      <Property LongName="CAN2.i_frame.subsampling" Type="1">1</Property>
+    </Input>
+    <Output LongName="CAN2.o_frame" Name="o_frame">
+      <Property LongName="CAN2.o_frame.subsampling" Type="1">1</Property>
+      <Property LongName="CAN2.o_frame.fifosize" Type="1">16</Property>
+      <Property LongName="CAN2.o_frame.periodic" Type="0">false</Property>
+    </Output>
+    <Property LongName="CAN2.p_bus_type" Type="4"><![CDATA[2|1|CAN|CAN FD]]></Property>
+    <Property LongName="CAN2.p_frame_type" Type="4"><![CDATA[2|1|MAPSCANUniFrame|MAPSCANFDFrame (Legacy)]]></Property>
+    <Property LongName="CAN2.can_bridge_package" Type="3" SubType="80"><![CDATA[]]></Property>
+    <Property LongName="CAN2.can_bridge_channel" Type="3"><![CDATA[]]></Property>
+    <Property LongName="CAN2.p_interface" Type="3"><![CDATA[can1]]></Property>
+    <ReadOnlyProperty LongName="CAN2.p_interface_index" Type="3"><![CDATA[12]]></ReadOnlyProperty>
+    <ReadOnlyProperty LongName="CAN2.p_subsection_begin_rx" Type="3" SubType="256"><![CDATA[RX]]></ReadOnlyProperty>
+    <Property LongName="CAN2.p_enable_rx" Type="0">true</Property>
+    <Property LongName="CAN2.p_rx_mode" Type="4"><![CDATA[2|0|Polling|Event-Based]]></Property>
+    <Property LongName="CAN2.p_rx_polling_period_us" Type="1" SubType="1">5000</Property>
+    <Property LongName="CAN2.p_rx_id_filter" Type="3"><![CDATA[]]></Property>
+    <Property LongName="CAN2.p_vectorize_rx_frames" Type="0">true</Property>
+    <Property LongName="CAN2.p_rx_queue_size" Type="1">256</Property>
+    <Property LongName="CAN2.p_rx_accumulation_duration" Type="1" SubType="1">10000</Property>
+    <Property LongName="CAN2.p_use_hardware_ts" Type="0" SubType="128">false</Property>
+    <Property LongName="CAN2.p_timestamping_mode" Type="4"><![CDATA[3|1|RTMaps software timestamps for the data sample + RTMaps software timestamps for individual frames|RTMaps software timestamps for the data sample + Hardware timestamps for individual frames|Hardware timestamps for the data sample + Hardware timestamps for individual frames]]></Property>
+    <ReadOnlyProperty LongName="CAN2.p_subsection_end_rx" Type="0" SubType="512">true</ReadOnlyProperty>
+    <ReadOnlyProperty LongName="CAN2.p_subsection_begin_tx" Type="3" SubType="256"><![CDATA[TX]]></ReadOnlyProperty>
+    <Property LongName="CAN2.p_enable_tx" Type="0">true</Property>
+    <Property LongName="CAN2.p_canfd_tx_enable_brs" Type="0">false</Property>
+    <ReadOnlyProperty LongName="CAN2.p_subsection_end_tx" Type="0" SubType="512">true</ReadOnlyProperty>
+    <Property LongName="CAN2.threaded" Type="0">true</Property>
+    <Property LongName="CAN2.priority" Type="1">128</Property>
+    <Property LongName="CAN2.autoStart" Type="0">true</Property>
+  </Component>
+  <Component InstanceName="CANDecoder_1" Model="CANDecoder" Version="2.44.0" x="168" y="360" z="0">
+    <Input LongName="CANDecoder_1.input" Name="input">
+      <Property LongName="CANDecoder_1.input.readerType" Type="1">0</Property>
+      <Property LongName="CANDecoder_1.input.subsampling" Type="1">1</Property>
+    </Input>
+    <Output LongName="CANDecoder_1.DMS_Status_DMS_State" Name="DMS_Status_DMS_State">
+      <Property LongName="CANDecoder_1.DMS_Status_DMS_State.subsampling" Type="1">1</Property>
+      <Property LongName="CANDecoder_1.DMS_Status_DMS_State.fifosize" Type="1">16</Property>
+      <Property LongName="CANDecoder_1.DMS_Status_DMS_State.periodic" Type="0">false</Property>
+    </Output>
+    <Output LongName="CANDecoder_1.HMI_Button_State_DMS_Button_State" Name="HMI_Button_State_DMS_Button_State">
+      <Property LongName="CANDecoder_1.HMI_Button_State_DMS_Button_State.subsampling" Type="1">1</Property>
+      <Property LongName="CANDecoder_1.HMI_Button_State_DMS_Button_State.fifosize" Type="1">16</Property>
+      <Property LongName="CANDecoder_1.HMI_Button_State_DMS_Button_State.periodic" Type="0">false</Property>
+    </Output>
+    <Output LongName="CANDecoder_1.HMI_Button_State_DMS_Button_State_val" Name="HMI_Button_State_DMS_Button_State_val">
+      <Property LongName="CANDecoder_1.HMI_Button_State_DMS_Button_State_val.subsampling" Type="1">1</Property>
+      <Property LongName="CANDecoder_1.HMI_Button_State_DMS_Button_State_val.fifosize" Type="1">16</Property>
+      <Property LongName="CANDecoder_1.HMI_Button_State_DMS_Button_State_val.periodic" Type="0">false</Property>
+    </Output>
+    <Property LongName="CANDecoder_1.selection" Type="3"><![CDATA[DMS]]></Property>
+    <Property LongName="CANDecoder_1.maxNbOfOutputs" Type="1">30</Property>
+    <Property LongName="CANDecoder_1.database" Type="3" SubType="80"><![CDATA[/home/autera-admin/github/EcoCAR-CAV/DBC/UCR_EVC_Database_Y3.dbc]]><Relative><![CDATA[%RTMAPS_DIAGRAMDIR%/../../DBC/UCR_EVC_Database_Y3.dbc]]></Relative></Property>
+    <Property LongName="CANDecoder_1.show_available" Type="0">false</Property>
+    <Property LongName="CANDecoder_1.create_val_outputs" Type="0">true</Property>
+    <Property LongName="CANDecoder_1.output_scalars_only" Type="0">true</Property>
+    <Property LongName="CANDecoder_1.discard_wrong_length_frames" Type="0">true</Property>
+    <Property LongName="CANDecoder_1.verbose" Type="0">false</Property>
+    <Property LongName="CANDecoder_1.output_names_format" Type="4"><![CDATA[2|0|FrameName_SignalName|o_FrameID_SignalName]]></Property>
+    <Property LongName="CANDecoder_1.threaded" Type="0">false</Property>
+    <Property LongName="CANDecoder_1.priority" Type="1">128</Property>
+    <Property LongName="CANDecoder_1.autoStart" Type="0">true</Property>
+  </Component>
+  <Component InstanceName="CANEncoder_1" Model="CANEncoder" Version="3.1.1" x="1256" y="344" z="0">
+    <Input LongName="CANEncoder_1.DMS_Status_DMS_State" Name="DMS_Status_DMS_State">
+      <Property LongName="CANEncoder_1.DMS_Status_DMS_State.readerType" Type="1">0</Property>
+      <Property LongName="CANEncoder_1.DMS_Status_DMS_State.subsampling" Type="1">1</Property>
+    </Input>
+    <Output LongName="CANEncoder_1.oCANFrame" Name="oCANFrame">
+      <Property LongName="CANEncoder_1.oCANFrame.subsampling" Type="1">1</Property>
+      <Property LongName="CANEncoder_1.oCANFrame.fifosize" Type="1">16</Property>
+      <Property LongName="CANEncoder_1.oCANFrame.periodic" Type="0">false</Property>
+    </Output>
+    <Property LongName="CANEncoder_1.output_as_uniframe" Type="0">false</Property>
+    <Property LongName="CANEncoder_1.selection" Type="3"><![CDATA[DMS_state]]></Property>
+    <Property LongName="CANEncoder_1.maxNbOfInputs" Type="1">30</Property>
+    <Property LongName="CANEncoder_1.database" Type="3" SubType="80"><![CDATA[/home/autera-admin/github/EcoCAR-CAV/DBC/UCR_EVC_Database_Y3.dbc]]><Relative><![CDATA[%RTMAPS_DIAGRAMDIR%/../../DBC/UCR_EVC_Database_Y3.dbc]]></Relative></Property>
+    <Property LongName="CANEncoder_1.waitForMessageCompletion" Type="0">true</Property>
+    <Property LongName="CANEncoder_1.show_available" Type="0">false</Property>
+    <Property LongName="CANEncoder_1.readersMode" Type="4"><![CDATA[2|0|fifoReader|samplingReader]]></Property>
+    <Property LongName="CANEncoder_1.verbose" Type="0">false</Property>
+    <Property LongName="CANEncoder_1.threaded" Type="0">true</Property>
+    <Property LongName="CANEncoder_1.priority" Type="1">128</Property>
+    <Property LongName="CANEncoder_1.autoStart" Type="0">true</Property>
+  </Component>
+  <Component InstanceName="CANFDDecoder_1" Model="CANFDDecoder" Version="3.1.1" x="192" y="40" z="0">
+    <Input LongName="CANFDDecoder_1.input" Name="input">
+      <Property LongName="CANFDDecoder_1.input.readerType" Type="1">0</Property>
+      <Property LongName="CANFDDecoder_1.input.subsampling" Type="1">1</Property>
+    </Input>
+    <Output LongName="CANFDDecoder_1.DrvrMonSysInfo_Prtctd_PDU_DMSIP_DrvrAttnStatAuth" Name="DrvrMonSysInfo_Prtctd_PDU_DMSIP_DrvrAttnStatAuth">
+      <Property LongName="CANFDDecoder_1.DrvrMonSysInfo_Prtctd_PDU_DMSIP_DrvrAttnStatAuth.subsampling" Type="1">1</Property>
+      <Property LongName="CANFDDecoder_1.DrvrMonSysInfo_Prtctd_PDU_DMSIP_DrvrAttnStatAuth.fifosize" Type="1">16</Property>
+      <Property LongName="CANFDDecoder_1.DrvrMonSysInfo_Prtctd_PDU_DMSIP_DrvrAttnStatAuth.periodic" Type="0">false</Property>
+    </Output>
+    <Output LongName="CANFDDecoder_1.DrvrMonSysInfo_Prtctd_PDU_DMSIP_DrvrAttnStatAuth_val" Name="DrvrMonSysInfo_Prtctd_PDU_DMSIP_DrvrAttnStatAuth_val">
+      <Property LongName="CANFDDecoder_1.DrvrMonSysInfo_Prtctd_PDU_DMSIP_DrvrAttnStatAuth_val.subsampling" Type="1">1</Property>
+      <Property LongName="CANFDDecoder_1.DrvrMonSysInfo_Prtctd_PDU_DMSIP_DrvrAttnStatAuth_val.fifosize" Type="1">16</Property>
+      <Property LongName="CANFDDecoder_1.DrvrMonSysInfo_Prtctd_PDU_DMSIP_DrvrAttnStatAuth_val.periodic" Type="0">false</Property>
+    </Output>
+    <Output LongName="CANFDDecoder_1.DrvrMonSysInfo_Prtctd_PDU_DMSDrvrAttnStatCnfdLvlAuth" Name="DrvrMonSysInfo_Prtctd_PDU_DMSDrvrAttnStatCnfdLvlAuth">
+      <Property LongName="CANFDDecoder_1.DrvrMonSysInfo_Prtctd_PDU_DMSDrvrAttnStatCnfdLvlAuth.subsampling" Type="1">1</Property>
+      <Property LongName="CANFDDecoder_1.DrvrMonSysInfo_Prtctd_PDU_DMSDrvrAttnStatCnfdLvlAuth.fifosize" Type="1">16</Property>
+      <Property LongName="CANFDDecoder_1.DrvrMonSysInfo_Prtctd_PDU_DMSDrvrAttnStatCnfdLvlAuth.periodic" Type="0">false</Property>
+    </Output>
+    <Output LongName="CANFDDecoder_1.DrvrMonSysInfo_Prtctd_PDU_DMSDrvrAttnStatCnfdLvlAuth_val" Name="DrvrMonSysInfo_Prtctd_PDU_DMSDrvrAttnStatCnfdLvlAuth_val">
+      <Property LongName="CANFDDecoder_1.DrvrMonSysInfo_Prtctd_PDU_DMSDrvrAttnStatCnfdLvlAuth_val.subsampling" Type="1">1</Property>
+      <Property LongName="CANFDDecoder_1.DrvrMonSysInfo_Prtctd_PDU_DMSDrvrAttnStatCnfdLvlAuth_val.fifosize" Type="1">16</Property>
+      <Property LongName="CANFDDecoder_1.DrvrMonSysInfo_Prtctd_PDU_DMSDrvrAttnStatCnfdLvlAuth_val.periodic" Type="0">false</Property>
+    </Output>
+    <Output LongName="CANFDDecoder_1.SrlDat36_Prtctd_PDU_SWHOP_StrgWhlHndsOffDtnStatAuth" Name="SrlDat36_Prtctd_PDU_SWHOP_StrgWhlHndsOffDtnStatAuth">
+      <Property LongName="CANFDDecoder_1.SrlDat36_Prtctd_PDU_SWHOP_StrgWhlHndsOffDtnStatAuth.subsampling" Type="1">1</Property>
+      <Property LongName="CANFDDecoder_1.SrlDat36_Prtctd_PDU_SWHOP_StrgWhlHndsOffDtnStatAuth.fifosize" Type="1">16</Property>
+      <Property LongName="CANFDDecoder_1.SrlDat36_Prtctd_PDU_SWHOP_StrgWhlHndsOffDtnStatAuth.periodic" Type="0">false</Property>
+    </Output>
+    <Output LongName="CANFDDecoder_1.SrlDat36_Prtctd_PDU_SWHOP_StrgWhlHndsOffDtnStatAuth_val" Name="SrlDat36_Prtctd_PDU_SWHOP_StrgWhlHndsOffDtnStatAuth_val">
+      <Property LongName="CANFDDecoder_1.SrlDat36_Prtctd_PDU_SWHOP_StrgWhlHndsOffDtnStatAuth_val.subsampling" Type="1">1</Property>
+      <Property LongName="CANFDDecoder_1.SrlDat36_Prtctd_PDU_SWHOP_StrgWhlHndsOffDtnStatAuth_val.fifosize" Type="1">16</Property>
+      <Property LongName="CANFDDecoder_1.SrlDat36_Prtctd_PDU_SWHOP_StrgWhlHndsOffDtnStatAuth_val.periodic" Type="0">false</Property>
+    </Output>
+    <Output LongName="CANFDDecoder_1.VehSpdAvgDrvn_Prtctd_PDU_VSADP_VehSpdAvgDrvnAuth" Name="VehSpdAvgDrvn_Prtctd_PDU_VSADP_VehSpdAvgDrvnAuth">
+      <Property LongName="CANFDDecoder_1.VehSpdAvgDrvn_Prtctd_PDU_VSADP_VehSpdAvgDrvnAuth.subsampling" Type="1">1</Property>
+      <Property LongName="CANFDDecoder_1.VehSpdAvgDrvn_Prtctd_PDU_VSADP_VehSpdAvgDrvnAuth.fifosize" Type="1">16</Property>
+      <Property LongName="CANFDDecoder_1.VehSpdAvgDrvn_Prtctd_PDU_VSADP_VehSpdAvgDrvnAuth.periodic" Type="0">false</Property>
+    </Output>
+    <Property LongName="CANFDDecoder_1.database" Type="3" SubType="80"><![CDATA[/home/autera-admin/github/EcoCAR-CAV/DBC/GM_GB_DWCAN2.dbc]]><Relative><![CDATA[%RTMAPS_DIAGRAMDIR%/../../DBC/GM_GB_DWCAN2.dbc]]></Relative></Property>
+    <Property LongName="CANFDDecoder_1.show_available" Type="0">false</Property>
+    <Property LongName="CANFDDecoder_1.selection" Type="3"><![CDATA[DrvrAttnStatAuth$|DMSDrvrAttnStatCnfdLvlAuth$|SWHOP_StrgWhlHndsOffDtnStatAuth$|vehspdavgdrvnauth$]]></Property>
+    <Property LongName="CANFDDecoder_1.maxNbOfOutputs" Type="1">30</Property>
+    <Property LongName="CANFDDecoder_1.create_val_outputs" Type="0">true</Property>
+    <Property LongName="CANFDDecoder_1.output_scalars_only" Type="0">true</Property>
+    <Property LongName="CANFDDecoder_1.verbose" Type="0">false</Property>
+    <Property LongName="CANFDDecoder_1.threaded" Type="0">false</Property>
+    <Property LongName="CANFDDecoder_1.priority" Type="1">128</Property>
+    <Property LongName="CANFDDecoder_1.autoStart" Type="0">true</Property>
+  </Component>
+  <Component InstanceName="CANFDEncoder_1" Model="CANFDEncoder" Version="3.1.1" x="1368" y="104" z="0">
+    <Input LongName="CANFDEncoder_1.PDU_2258_DMSDrwIntnDrvrLvl1ChmEvntStat" Name="PDU_2258_DMSDrwIntnDrvrLvl1ChmEvntStat">
+      <Property LongName="CANFDEncoder_1.PDU_2258_DMSDrwIntnDrvrLvl1ChmEvntStat.readerType" Type="1">0</Property>
+      <Property LongName="CANFDEncoder_1.PDU_2258_DMSDrwIntnDrvrLvl1ChmEvntStat.subsampling" Type="1">1</Property>
+    </Input>
+    <Input LongName="CANFDEncoder_1.PDU_2258_DMSDrwIntnDrvrLvl2ChmEvntStat" Name="PDU_2258_DMSDrwIntnDrvrLvl2ChmEvntStat">
+      <Property LongName="CANFDEncoder_1.PDU_2258_DMSDrwIntnDrvrLvl2ChmEvntStat.readerType" Type="1">0</Property>
+      <Property LongName="CANFDEncoder_1.PDU_2258_DMSDrwIntnDrvrLvl2ChmEvntStat.subsampling" Type="1">1</Property>
+    </Input>
+    <Output LongName="CANFDEncoder_1.oCANFDFrame" Name="oCANFDFrame">
+      <Property LongName="CANFDEncoder_1.oCANFDFrame.subsampling" Type="1">1</Property>
+      <Property LongName="CANFDEncoder_1.oCANFDFrame.fifosize" Type="1">16</Property>
+      <Property LongName="CANFDEncoder_1.oCANFDFrame.periodic" Type="0">false</Property>
+    </Output>
+    <Property LongName="CANFDEncoder_1.output_as_uniframe" Type="0">false</Property>
+    <Property LongName="CANFDEncoder_1.database" Type="3" SubType="80"><![CDATA[/home/autera-admin/github/EcoCAR-CAV/DBC/GM_GB_DWCAN2.dbc]]><Relative><![CDATA[%RTMAPS_DIAGRAMDIR%/../../DBC/GM_GB_DWCAN2.dbc]]></Relative></Property>
+    <Property LongName="CANFDEncoder_1.waitForMessageCompletion" Type="0">true</Property>
+    <Property LongName="CANFDEncoder_1.show_available" Type="0">false</Property>
+    <Property LongName="CANFDEncoder_1.selection" Type="3"><![CDATA[lvl2chm|lvl1chm]]></Property>
+    <Property LongName="CANFDEncoder_1.maxNbOfInputs" Type="1">30</Property>
+    <Property LongName="CANFDEncoder_1.readersMode" Type="4"><![CDATA[2|0|fifoReader|samplingReader]]></Property>
+    <Property LongName="CANFDEncoder_1.verbose" Type="0">false</Property>
+    <Property LongName="CANFDEncoder_1.threaded" Type="0">true</Property>
+    <Property LongName="CANFDEncoder_1.priority" Type="1">128</Property>
+    <Property LongName="CANFDEncoder_1.autoStart" Type="0">true</Property>
+  </Component>
+  <Component InstanceName="DataViewer_1" Model="DataViewer" Version="2.0.17" x="1184" y="192" z="0">
+    <Input LongName="DataViewer_1.input_0" Name="input_0">
+      <Property LongName="DataViewer_1.input_0.readerType" Type="1">4</Property>
+      <Property LongName="DataViewer_1.input_0.subsampling" Type="1">1</Property>
+    </Input>
+    <Input LongName="DataViewer_1.input_1" Name="input_1">
+      <Property LongName="DataViewer_1.input_1.readerType" Type="1">4</Property>
+      <Property LongName="DataViewer_1.input_1.subsampling" Type="1">1</Property>
+    </Input>
+    <Input LongName="DataViewer_1.input_2" Name="input_2">
+      <Property LongName="DataViewer_1.input_2.readerType" Type="1">4</Property>
+      <Property LongName="DataViewer_1.input_2.subsampling" Type="1">1</Property>
+    </Input>
+    <Input LongName="DataViewer_1.input_3" Name="input_3">
+      <Property LongName="DataViewer_1.input_3.readerType" Type="1">4</Property>
+      <Property LongName="DataViewer_1.input_3.subsampling" Type="1">1</Property>
+    </Input>
+    <Input LongName="DataViewer_1.input_4" Name="input_4">
+      <Property LongName="DataViewer_1.input_4.readerType" Type="1">4</Property>
+      <Property LongName="DataViewer_1.input_4.subsampling" Type="1">1</Property>
+    </Input>
+    <Input LongName="DataViewer_1.input_5" Name="input_5">
+      <Property LongName="DataViewer_1.input_5.readerType" Type="1">4</Property>
+      <Property LongName="DataViewer_1.input_5.subsampling" Type="1">1</Property>
+    </Input>
+    <Property LongName="DataViewer_1.begin_guard" Type="0" SubType="128">true</Property>
+    <ReadOnlyProperty LongName="DataViewer_1.widget_begin_config" Type="3" SubType="256"><![CDATA[General Configuration]]></ReadOnlyProperty>
+    <Property LongName="DataViewer_1.autoDirty" Type="0">true</Property>
+    <Property LongName="DataViewer_1.run" Type="0">true</Property>
+    <Property LongName="DataViewer_1.alwaysOnTop" Type="4"><![CDATA[4|0|Only at run time|Only at design time|No|Both at run time and design time]]></Property>
+    <Property LongName="DataViewer_1.moveable" Type="0">true</Property>
+    <Property LongName="DataViewer_1.hidden" Type="0">false</Property>
+    <Property LongName="DataViewer_1.title" Type="3"><![CDATA[]]></Property>
+    <Property LongName="DataViewer_1.x" Type="1">1023</Property>
+    <Property LongName="DataViewer_1.y" Type="1">145</Property>
+    <Property LongName="DataViewer_1.width" Type="1">897</Property>
+    <Property LongName="DataViewer_1.height" Type="1">430</Property>
+    <Property LongName="DataViewer_1.end_guard" Type="0" SubType="128">true</Property>
+    <ReadOnlyProperty LongName="DataViewer_1.widget_end_config" Type="0" SubType="512">false</ReadOnlyProperty>
+    <ReadOnlyProperty LongName="DataViewer_1.specific_begin_config" Type="3" SubType="256"><![CDATA[Specific Configuration]]></ReadOnlyProperty>
+    <Property LongName="DataViewer_1.nbInputs" Type="1">6</Property>
+    <Property LongName="DataViewer_1.compactMode" Type="0">false</Property>
+    <Property LongName="DataViewer_1.showInfo" Type="0">true</Property>
+    <Property LongName="DataViewer_1.showData" Type="0">true</Property>
+    <Property LongName="DataViewer_1.showPrettyTimestamp" Type="0">true</Property>
+    <Property LongName="DataViewer_1.float32Format" Type="3"><![CDATA[%9g]]></Property>
+    <Property LongName="DataViewer_1.float64Format" Type="3"><![CDATA[%9g]]></Property>
+    <Property LongName="DataViewer_1.integer8Format" Type="3"><![CDATA[%d]]></Property>
+    <Property LongName="DataViewer_1.integer16Format" Type="3"><![CDATA[%d]]></Property>
+    <Property LongName="DataViewer_1.integer32Format" Type="3"><![CDATA[%d]]></Property>
+    <Property LongName="DataViewer_1.integer64Format" Type="3"><![CDATA[%ld]]></Property>
+    <Property LongName="DataViewer_1.unsignedInteger8Format" Type="3"><![CDATA[%u]]></Property>
+    <Property LongName="DataViewer_1.unsignedInteger16Format" Type="3"><![CDATA[%u]]></Property>
+    <Property LongName="DataViewer_1.unsignedInteger32Format" Type="3"><![CDATA[%u]]></Property>
+    <Property LongName="DataViewer_1.unsignedInteger64Format" Type="3"><![CDATA[%lu]]></Property>
+    <Property LongName="DataViewer_1.hexDisplay" Type="0">false</Property>
+    <Property LongName="DataViewer_1.internalState" Type="3" SubType="128"><![CDATA[452;435]]></Property>
+    <Property LongName="DataViewer_1.expandedState" Type="3" SubType="128"><![CDATA[1|CANFDDecoder_1.DrvrMonSysInfo_Prtctd_PDU_DMSIP_DrvrAttnStatAuth;1|Info:CANFDDecoder_1.DrvrMonSysInfo_Prtctd_PDU_DMSIP_DrvrAttnStatAuth;1|Data:CANFDDecoder_1.DrvrMonSysInfo_Prtctd_PDU_DMSIP_DrvrAttnStatAuth;1|CANFDDecoder_1.DrvrMonSysInfo_Prtctd_PDU_DMSDrvrAttnStatCnfdLvlAuth;0|Info:CANFDDecoder_1.DrvrMonSysInfo_Prtctd_PDU_DMSDrvrAttnStatCnfdLvlAuth;1|Data:CANFDDecoder_1.DrvrMonSysInfo_Prtctd_PDU_DMSDrvrAttnStatCnfdLvlAuth;1|CANFDDecoder_1.SrlDat36_Prtctd_PDU_SWHOP_StrgWhlHndsOffDtnStatAuth;0|Info:CANFDDecoder_1.SrlDat36_Prtctd_PDU_SWHOP_StrgWhlHndsOffDtnStatAuth;1|Data:CANFDDecoder_1.SrlDat36_Prtctd_PDU_SWHOP_StrgWhlHndsOffDtnStatAuth;1|PythonBridge_1.state;0|Info:PythonBridge_1.state;1|Data:PythonBridge_1.state;0|;0|]]></Property>
+    <ReadOnlyProperty LongName="DataViewer_1.specific_end_config" Type="0" SubType="512">true</ReadOnlyProperty>
+    <Property LongName="DataViewer_1.threaded" Type="0">true</Property>
+    <Property LongName="DataViewer_1.priority" Type="1">128</Property>
+    <Property LongName="DataViewer_1.autoStart" Type="0">true</Property>
+  </Component>
+  <Component InstanceName="DMS_Chime_level_1" Model="Condition" Version="9.0.0" x="888" y="16" z="0">
+    <Input LongName="DMS_Chime_level_1.state" Name="state">
+      <Property LongName="DMS_Chime_level_1.state.readerType" Type="1">0</Property>
+      <Property LongName="DMS_Chime_level_1.state.subsampling" Type="1">1</Property>
+    </Input>
+    <Output LongName="DMS_Chime_level_1.output" Name="output">
+      <Property LongName="DMS_Chime_level_1.output.subsampling" Type="1">1</Property>
+      <Property LongName="DMS_Chime_level_1.output.fifosize" Type="1">16</Property>
+      <Property LongName="DMS_Chime_level_1.output.periodic" Type="0">false</Property>
+    </Output>
+    <Output LongName="DMS_Chime_level_1.outputInteger" Name="outputInteger">
+      <Property LongName="DMS_Chime_level_1.outputInteger.subsampling" Type="1">1</Property>
+      <Property LongName="DMS_Chime_level_1.outputInteger.fifosize" Type="1">16</Property>
+      <Property LongName="DMS_Chime_level_1.outputInteger.periodic" Type="0">false</Property>
+    </Output>
+    <Output LongName="DMS_Chime_level_1.outputInteger64" Name="outputInteger64">
+      <Property LongName="DMS_Chime_level_1.outputInteger64.subsampling" Type="1">1</Property>
+      <Property LongName="DMS_Chime_level_1.outputInteger64.fifosize" Type="1">16</Property>
+      <Property LongName="DMS_Chime_level_1.outputInteger64.periodic" Type="0">false</Property>
+    </Output>
+    <Output LongName="DMS_Chime_level_1.outputFloat32" Name="outputFloat32">
+      <Property LongName="DMS_Chime_level_1.outputFloat32.subsampling" Type="1">1</Property>
+      <Property LongName="DMS_Chime_level_1.outputFloat32.fifosize" Type="1">16</Property>
+      <Property LongName="DMS_Chime_level_1.outputFloat32.periodic" Type="0">false</Property>
+    </Output>
+    <Property LongName="DMS_Chime_level_1.condition" Type="3"><![CDATA[state == 2]]></Property>
+    <Property LongName="DMS_Chime_level_1.when" Type="4"><![CDATA[4|0|condition is evaluated|condition is true|condition becomes true|condition state changes]]></Property>
+    <Property LongName="DMS_Chime_level_1.expression" Type="3"><![CDATA[1]]></Property>
+    <Property LongName="DMS_Chime_level_1.expression_false" Type="3"><![CDATA[0]]></Property>
+    <Property LongName="DMS_Chime_level_1.autoConnect" Type="0">false</Property>
+    <Property LongName="DMS_Chime_level_1.then" Type="3"><![CDATA[]]></Property>
+    <Property LongName="DMS_Chime_level_1.else" Type="3"><![CDATA[]]></Property>
+    <Property LongName="DMS_Chime_level_1.preFormat" Type="0">false</Property>
+    <Property LongName="DMS_Chime_level_1.name" Type="3"><![CDATA[]]></Property>
+    <Property LongName="DMS_Chime_level_1.unit" Type="3"><![CDATA[]]></Property>
+    <Property LongName="DMS_Chime_level_1.period" Type="1">100000</Property>
+    <Property LongName="DMS_Chime_level_1.async_commands" Type="0">true</Property>
+    <Property LongName="DMS_Chime_level_1.synchroTolerance" Type="1">-1</Property>
+    <Property LongName="DMS_Chime_level_1.threaded" Type="0">true</Property>
+    <Property LongName="DMS_Chime_level_1.priority" Type="1">128</Property>
+    <Property LongName="DMS_Chime_level_1.autoStart" Type="0">true</Property>
+  </Component>
+  <Component InstanceName="DMS_Chime_level_2" Model="Condition" Version="9.0.0" x="888" y="144" z="0">
+    <Input LongName="DMS_Chime_level_2.state" Name="state">
+      <Property LongName="DMS_Chime_level_2.state.readerType" Type="1">0</Property>
+      <Property LongName="DMS_Chime_level_2.state.subsampling" Type="1">1</Property>
+    </Input>
+    <Input LongName="DMS_Chime_level_2.cav_lock" Name="cav_lock">
+      <Property LongName="DMS_Chime_level_2.cav_lock.readerType" Type="1">0</Property>
+      <Property LongName="DMS_Chime_level_2.cav_lock.subsampling" Type="1">1</Property>
+    </Input>
+    <Output LongName="DMS_Chime_level_2.output" Name="output">
+      <Property LongName="DMS_Chime_level_2.output.subsampling" Type="1">1</Property>
+      <Property LongName="DMS_Chime_level_2.output.fifosize" Type="1">16</Property>
+      <Property LongName="DMS_Chime_level_2.output.periodic" Type="0">false</Property>
+    </Output>
+    <Output LongName="DMS_Chime_level_2.outputInteger" Name="outputInteger">
+      <Property LongName="DMS_Chime_level_2.outputInteger.subsampling" Type="1">1</Property>
+      <Property LongName="DMS_Chime_level_2.outputInteger.fifosize" Type="1">16</Property>
+      <Property LongName="DMS_Chime_level_2.outputInteger.periodic" Type="0">false</Property>
+    </Output>
+    <Output LongName="DMS_Chime_level_2.outputInteger64" Name="outputInteger64">
+      <Property LongName="DMS_Chime_level_2.outputInteger64.subsampling" Type="1">1</Property>
+      <Property LongName="DMS_Chime_level_2.outputInteger64.fifosize" Type="1">16</Property>
+      <Property LongName="DMS_Chime_level_2.outputInteger64.periodic" Type="0">false</Property>
+    </Output>
+    <Output LongName="DMS_Chime_level_2.outputFloat32" Name="outputFloat32">
+      <Property LongName="DMS_Chime_level_2.outputFloat32.subsampling" Type="1">1</Property>
+      <Property LongName="DMS_Chime_level_2.outputFloat32.fifosize" Type="1">16</Property>
+      <Property LongName="DMS_Chime_level_2.outputFloat32.periodic" Type="0">false</Property>
+    </Output>
+    <Property LongName="DMS_Chime_level_2.condition" Type="3"><![CDATA[state == 3 && cav_lock == 0]]></Property>
+    <Property LongName="DMS_Chime_level_2.when" Type="4"><![CDATA[4|0|condition is evaluated|condition is true|condition becomes true|condition state changes]]></Property>
+    <Property LongName="DMS_Chime_level_2.expression" Type="3"><![CDATA[1]]></Property>
+    <Property LongName="DMS_Chime_level_2.expression_false" Type="3"><![CDATA[0]]></Property>
+    <Property LongName="DMS_Chime_level_2.autoConnect" Type="0">false</Property>
+    <Property LongName="DMS_Chime_level_2.then" Type="3"><![CDATA[]]></Property>
+    <Property LongName="DMS_Chime_level_2.else" Type="3"><![CDATA[]]></Property>
+    <Property LongName="DMS_Chime_level_2.preFormat" Type="0">false</Property>
+    <Property LongName="DMS_Chime_level_2.name" Type="3"><![CDATA[]]></Property>
+    <Property LongName="DMS_Chime_level_2.unit" Type="3"><![CDATA[]]></Property>
+    <Property LongName="DMS_Chime_level_2.period" Type="1">100000</Property>
+    <Property LongName="DMS_Chime_level_2.async_commands" Type="0">true</Property>
+    <Property LongName="DMS_Chime_level_2.synchroTolerance" Type="1">-1</Property>
+    <Property LongName="DMS_Chime_level_2.threaded" Type="0">true</Property>
+    <Property LongName="DMS_Chime_level_2.priority" Type="1">128</Property>
+    <Property LongName="DMS_Chime_level_2.autoStart" Type="0">true</Property>
+  </Component>
+  <Component InstanceName="DMS_State" Model="Condition" Version="9.0.0" x="888" y="328" z="0">
+    <Input LongName="DMS_State.state" Name="state">
+      <Property LongName="DMS_State.state.readerType" Type="1">0</Property>
+      <Property LongName="DMS_State.state.subsampling" Type="1">1</Property>
+    </Input>
+    <Output LongName="DMS_State.output" Name="output">
+      <Property LongName="DMS_State.output.subsampling" Type="1">1</Property>
+      <Property LongName="DMS_State.output.fifosize" Type="1">16</Property>
+      <Property LongName="DMS_State.output.periodic" Type="0">false</Property>
+    </Output>
+    <Output LongName="DMS_State.outputInteger" Name="outputInteger">
+      <Property LongName="DMS_State.outputInteger.subsampling" Type="1">1</Property>
+      <Property LongName="DMS_State.outputInteger.fifosize" Type="1">16</Property>
+      <Property LongName="DMS_State.outputInteger.periodic" Type="0">false</Property>
+    </Output>
+    <Output LongName="DMS_State.outputInteger64" Name="outputInteger64">
+      <Property LongName="DMS_State.outputInteger64.subsampling" Type="1">1</Property>
+      <Property LongName="DMS_State.outputInteger64.fifosize" Type="1">16</Property>
+      <Property LongName="DMS_State.outputInteger64.periodic" Type="0">false</Property>
+    </Output>
+    <Output LongName="DMS_State.outputFloat32" Name="outputFloat32">
+      <Property LongName="DMS_State.outputFloat32.subsampling" Type="1">1</Property>
+      <Property LongName="DMS_State.outputFloat32.fifosize" Type="1">16</Property>
+      <Property LongName="DMS_State.outputFloat32.periodic" Type="0">false</Property>
+    </Output>
+    <Property LongName="DMS_State.condition" Type="3"><![CDATA[state >= 1]]></Property>
+    <Property LongName="DMS_State.when" Type="4"><![CDATA[4|0|condition is evaluated|condition is true|condition becomes true|condition state changes]]></Property>
+    <Property LongName="DMS_State.expression" Type="3"><![CDATA[1]]></Property>
+    <Property LongName="DMS_State.expression_false" Type="3"><![CDATA[0]]></Property>
+    <Property LongName="DMS_State.autoConnect" Type="0">false</Property>
+    <Property LongName="DMS_State.then" Type="3"><![CDATA[]]></Property>
+    <Property LongName="DMS_State.else" Type="3"><![CDATA[]]></Property>
+    <Property LongName="DMS_State.preFormat" Type="0">false</Property>
+    <Property LongName="DMS_State.name" Type="3"><![CDATA[]]></Property>
+    <Property LongName="DMS_State.unit" Type="3"><![CDATA[]]></Property>
+    <Property LongName="DMS_State.period" Type="1">100000</Property>
+    <Property LongName="DMS_State.async_commands" Type="0">true</Property>
+    <Property LongName="DMS_State.synchroTolerance" Type="1">-1</Property>
+    <Property LongName="DMS_State.threaded" Type="0">true</Property>
+    <Property LongName="DMS_State.priority" Type="1">128</Property>
+    <Property LongName="DMS_State.autoStart" Type="0">true</Property>
+  </Component>
+  <Component InstanceName="EVCCAN" Model="socketcan2" Version="2.4.0" x="672" y="592" z="0">
+    <Input LongName="EVCCAN.i_frame" Name="i_frame">
+      <Property LongName="EVCCAN.i_frame.readerType" Type="1">0</Property>
+      <Property LongName="EVCCAN.i_frame.subsampling" Type="1">1</Property>
+    </Input>
+    <Output LongName="EVCCAN.o_frame" Name="o_frame">
+      <Property LongName="EVCCAN.o_frame.subsampling" Type="1">1</Property>
+      <Property LongName="EVCCAN.o_frame.fifosize" Type="1">16</Property>
+      <Property LongName="EVCCAN.o_frame.periodic" Type="0">false</Property>
+    </Output>
+    <Property LongName="EVCCAN.p_bus_type" Type="4"><![CDATA[2|0|CAN|CAN FD]]></Property>
+    <Property LongName="EVCCAN.p_frame_type" Type="4"><![CDATA[2|1|MAPSCANUniFrame|MAPSCANFrame (Legacy)]]></Property>
+    <Property LongName="EVCCAN.can_bridge_package" Type="3" SubType="80"><![CDATA[]]></Property>
+    <Property LongName="EVCCAN.can_bridge_channel" Type="3"><![CDATA[]]></Property>
+    <Property LongName="EVCCAN.p_interface" Type="3"><![CDATA[can0]]></Property>
+    <ReadOnlyProperty LongName="EVCCAN.p_interface_index" Type="3"><![CDATA[10]]></ReadOnlyProperty>
+    <ReadOnlyProperty LongName="EVCCAN.p_subsection_begin_rx" Type="3" SubType="256"><![CDATA[RX]]></ReadOnlyProperty>
+    <Property LongName="EVCCAN.p_enable_rx" Type="0">true</Property>
+    <Property LongName="EVCCAN.p_rx_mode" Type="4"><![CDATA[2|0|Polling|Event-Based]]></Property>
+    <Property LongName="EVCCAN.p_rx_polling_period_us" Type="1" SubType="1">5000</Property>
+    <Property LongName="EVCCAN.p_rx_id_filter" Type="3"><![CDATA[]]></Property>
+    <Property LongName="EVCCAN.p_vectorize_rx_frames" Type="0">true</Property>
+    <Property LongName="EVCCAN.p_rx_queue_size" Type="1">256</Property>
+    <Property LongName="EVCCAN.p_rx_accumulation_duration" Type="1" SubType="1">10000</Property>
+    <Property LongName="EVCCAN.p_use_hardware_ts" Type="0" SubType="128">false</Property>
+    <Property LongName="EVCCAN.p_timestamping_mode" Type="4"><![CDATA[3|1|RTMaps software timestamps for the data sample + RTMaps software timestamps for individual frames|RTMaps software timestamps for the data sample + Hardware timestamps for individual frames|Hardware timestamps for the data sample + Hardware timestamps for individual frames]]></Property>
+    <ReadOnlyProperty LongName="EVCCAN.p_subsection_end_rx" Type="0" SubType="512">true</ReadOnlyProperty>
+    <ReadOnlyProperty LongName="EVCCAN.p_subsection_begin_tx" Type="3" SubType="256"><![CDATA[TX]]></ReadOnlyProperty>
+    <Property LongName="EVCCAN.p_enable_tx" Type="0">true</Property>
+    <ReadOnlyProperty LongName="EVCCAN.p_subsection_end_tx" Type="0" SubType="512">true</ReadOnlyProperty>
+    <Property LongName="EVCCAN.threaded" Type="0">true</Property>
+    <Property LongName="EVCCAN.priority" Type="1">128</Property>
+    <Property LongName="EVCCAN.autoStart" Type="0">true</Property>
+  </Component>
+  <Component InstanceName="PythonBridge_1" Model="PythonBridge" Version="4.4.7" x="584" y="168" z="0">
+    <Input LongName="PythonBridge_1.dms_gaze_status" Name="dms_gaze_status">
+      <Property LongName="PythonBridge_1.dms_gaze_status.readerType" Type="1">4</Property>
+      <Property LongName="PythonBridge_1.dms_gaze_status.subsampling" Type="1">1</Property>
+    </Input>
+    <Input LongName="PythonBridge_1.dms_confidence" Name="dms_confidence">
+      <Property LongName="PythonBridge_1.dms_confidence.readerType" Type="1">4</Property>
+      <Property LongName="PythonBridge_1.dms_confidence.subsampling" Type="1">1</Property>
+    </Input>
+    <Input LongName="PythonBridge_1.hands_off_wheel" Name="hands_off_wheel">
+      <Property LongName="PythonBridge_1.hands_off_wheel.readerType" Type="1">4</Property>
+      <Property LongName="PythonBridge_1.hands_off_wheel.subsampling" Type="1">1</Property>
+    </Input>
+    <Input LongName="PythonBridge_1.dms_requested" Name="dms_requested">
+      <Property LongName="PythonBridge_1.dms_requested.readerType" Type="1">4</Property>
+      <Property LongName="PythonBridge_1.dms_requested.subsampling" Type="1">1</Property>
+    </Input>
+    <Input LongName="PythonBridge_1.current_speed" Name="current_speed">
+      <Property LongName="PythonBridge_1.current_speed.readerType" Type="1">4</Property>
+      <Property LongName="PythonBridge_1.current_speed.subsampling" Type="1">1</Property>
+    </Input>
+    <Output LongName="PythonBridge_1.state" Name="state">
+      <Property LongName="PythonBridge_1.state.subsampling" Type="1">1</Property>
+      <Property LongName="PythonBridge_1.state.fifosize" Type="1">16</Property>
+      <Property LongName="PythonBridge_1.state.periodic" Type="0">false</Property>
+    </Output>
+    <Output LongName="PythonBridge_1.cav_lock" Name="cav_lock">
+      <Property LongName="PythonBridge_1.cav_lock.subsampling" Type="1">1</Property>
+      <Property LongName="PythonBridge_1.cav_lock.fifosize" Type="1">16</Property>
+      <Property LongName="PythonBridge_1.cav_lock.periodic" Type="0">false</Property>
+    </Output>
+    <Property LongName="PythonBridge_1.guard_begin" Type="0" SubType="128">true</Property>
+    <Property LongName="PythonBridge_1.internalInputs" Type="3" SubType="128"><![CDATA[dms_gaze_status;8==#dms_confidence;8==#hands_off_wheel;8==#dms_requested;6==#current_speed;1==]]></Property>
+    <Property LongName="PythonBridge_1.internalOutputs" Type="3" SubType="128"><![CDATA[state;8==;0#cav_lock;8==;0]]></Property>
+    <Property LongName="PythonBridge_1.internalProperties" Type="3" SubType="128"><![CDATA[dms_confidence_threshold||11||0#speed_threshold||11||5#attention_loss_warning_time||11||5#attention_loss_critical_time||11||10#hands_off_warning_time||11||5#hands_off_critical_time||11||10#cav_lock_duration||11||5]]></Property>
+    <ReadOnlyProperty LongName="PythonBridge_1.advance_begin_configuration" Type="3" SubType="256"><![CDATA[Advanced Configuration]]></ReadOnlyProperty>
+    <Property LongName="PythonBridge_1.deathBehavior" Type="4"><![CDATA[3|1|WAIT FOR PROCESS INDEFINITELY|KILL PROCESS AFTER TIMEOUT (5sec)|START ANOTHER PROCESS]]></Property>
+    <Property LongName="PythonBridge_1.capturePythonPrint" Type="0">true</Property>
+    <Property LongName="PythonBridge_1.useTCPOnly" Type="0">false</Property>
+    <ReadOnlyProperty LongName="PythonBridge_1.pythonPID" Type="1">54822</ReadOnlyProperty>
+    <Property LongName="PythonBridge_1.FileSHMSize" Type="1">15000000</Property>
+    <Property LongName="PythonBridge_1.useNuitka" Type="0">false</Property>
+    <ReadOnlyProperty LongName="PythonBridge_1.advance_end_configuration" Type="0" SubType="512">false</ReadOnlyProperty>
+    <ReadOnlyProperty LongName="PythonBridge_1.basic_begin_configuration" Type="3" SubType="256"><![CDATA[Basic Configuration]]></ReadOnlyProperty>
+    <Property LongName="PythonBridge_1.className" Type="3"><![CDATA[rtmaps_python]]></Property>
+    <Property LongName="PythonBridge_1.pythonExecutable" Type="3" SubType="16"><![CDATA[]]></Property>
+    <Property LongName="PythonBridge_1.pythonFilename" Type="3" SubType="80"><![CDATA[/home/autera-admin/github/EcoCAR-CAV/Driver Monitoring System/Python_Scripts/DMSStateController.py]]><Relative><![CDATA[%RTMAPS_DIAGRAMDIR%/../Python_Scripts/DMSStateController.py]]></Relative></Property>
+    <Property LongName="PythonBridge_1.readingPolicy" Type="4"><![CDATA[5|2|Synchro|Reactive|Sampling|Triggered by First Input|Periodic Resampling Based on Timestamps]]></Property>
+    <Property LongName="PythonBridge_1.samplingPeriod" Type="1" SubType="1">50000</Property>
+    <Property LongName="PythonBridge_1.inputsBehavior" Type="4"><![CDATA[2|0|AllowEmptyInputs|Wait4AllInputs]]></Property>
+    <ReadOnlyProperty LongName="PythonBridge_1.basic_end_configuration" Type="0" SubType="512">true</ReadOnlyProperty>
+    <ReadOnlyProperty LongName="PythonBridge_1.userSubsection" Type="3" SubType="256"><![CDATA[User Properties]]></ReadOnlyProperty>
+    <Property LongName="PythonBridge_1.dms_confidence_threshold" Type="2">0</Property>
+    <Property LongName="PythonBridge_1.speed_threshold" Type="2">5</Property>
+    <Property LongName="PythonBridge_1.attention_loss_warning_time" Type="2">5</Property>
+    <Property LongName="PythonBridge_1.attention_loss_critical_time" Type="2">15</Property>
+    <Property LongName="PythonBridge_1.hands_off_warning_time" Type="2">5</Property>
+    <Property LongName="PythonBridge_1.hands_off_critical_time" Type="2">10</Property>
+    <Property LongName="PythonBridge_1.cav_lock_duration" Type="2">5</Property>
+    <Property LongName="PythonBridge_1.guard_end" Type="0" SubType="128">true</Property>
+    <ReadOnlyProperty LongName="PythonBridge_1.userSubsectionEnd" Type="0" SubType="512">true</ReadOnlyProperty>
+    <Property LongName="PythonBridge_1.threaded" Type="0">true</Property>
+    <Property LongName="PythonBridge_1.priority" Type="1">128</Property>
+    <Property LongName="PythonBridge_1.autoStart" Type="0">true</Property>
+  </Component>
+  <Connection Output="CANFDEncoder_1.oCANFDFrame" Input="CAN2.i_frame"/>
+  <Connection Output="EVCCAN.o_frame" Input="CANDecoder_1.input"/>
+  <Connection Output="DMS_State.outputInteger" Input="CANEncoder_1.DMS_Status_DMS_State"/>
+  <Connection Output="CAN2.o_frame" Input="CANFDDecoder_1.input"/>
+  <Connection Output="DMS_Chime_level_1.outputInteger64" Input="CANFDEncoder_1.PDU_2258_DMSDrwIntnDrvrLvl1ChmEvntStat"/>
+  <Connection Output="DMS_Chime_level_2.outputInteger64" Input="CANFDEncoder_1.PDU_2258_DMSDrwIntnDrvrLvl2ChmEvntStat"/>
+  <Connection Output="CANFDDecoder_1.DrvrMonSysInfo_Prtctd_PDU_DMSIP_DrvrAttnStatAuth" Input="DataViewer_1.input_0"/>
+  <Connection Output="CANFDDecoder_1.DrvrMonSysInfo_Prtctd_PDU_DMSDrvrAttnStatCnfdLvlAuth" Input="DataViewer_1.input_1"/>
+  <Connection Output="CANFDDecoder_1.SrlDat36_Prtctd_PDU_SWHOP_StrgWhlHndsOffDtnStatAuth" Input="DataViewer_1.input_2"/>
+  <Connection Output="PythonBridge_1.state" Input="DataViewer_1.input_3"/>
+  <Connection Output="PythonBridge_1.state" Input="DMS_Chime_level_1.state"/>
+  <Connection Output="PythonBridge_1.state" Input="DMS_Chime_level_2.state"/>
+  <Connection Output="PythonBridge_1.cav_lock" Input="DMS_Chime_level_2.cav_lock"/>
+  <Connection Output="PythonBridge_1.state" Input="DMS_State.state"/>
+  <Connection Output="CANEncoder_1.oCANFrame" Input="EVCCAN.i_frame"/>
+  <Connection Output="CANFDDecoder_1.DrvrMonSysInfo_Prtctd_PDU_DMSIP_DrvrAttnStatAuth" Input="PythonBridge_1.dms_gaze_status"/>
+  <Connection Output="CANFDDecoder_1.DrvrMonSysInfo_Prtctd_PDU_DMSDrvrAttnStatCnfdLvlAuth" Input="PythonBridge_1.dms_confidence"/>
+  <Connection Output="CANFDDecoder_1.SrlDat36_Prtctd_PDU_SWHOP_StrgWhlHndsOffDtnStatAuth" Input="PythonBridge_1.hands_off_wheel"/>
+  <Connection Output="CANDecoder_1.HMI_Button_State_DMS_Button_State" Input="PythonBridge_1.dms_requested"/>
+  <Connection Output="kmph_to_mph_1.mph" Input="PythonBridge_1.current_speed"/>
+  <Connection Output="CANFDDecoder_1.VehSpdAvgDrvn_Prtctd_PDU_VSADP_VehSpdAvgDrvnAuth" Input="kmph_to_mph_1.kmph"/>
+  <RTBoardView ID="JavaStudio1.0">
+    <ComponentBox InstanceName="ACC_1" reversed="false">
+      <Description/>
+    </ComponentBox>
+    <ComponentBox InstanceName="APACtlAngFrameViewer_1" reversed="false">
+      <Description/>
+    </ComponentBox>
+    <ComponentBox InstanceName="APAStsFrameViewer_1" reversed="false">
+      <Description/>
+    </ComponentBox>
+    <ComponentBox InstanceName="bypass_1" reversed="false">
+      <Description/>
+    </ComponentBox>
+    <ComponentBox InstanceName="CANFDMux_1_1" reversed="false">
+      <Description/>
+    </ComponentBox>
+    <ComponentBox InstanceName="CANFramesGenerator_2_1" reversed="false">
+      <Description/>
+    </ComponentBox>
+    <ComponentBox InstanceName="CANFramesGenerator_2_1_1" reversed="false">
+      <Description/>
+    </ComponentBox>
+    <ComponentBox InstanceName="CANFramesGenerator_2_1_1_1" reversed="false">
+      <Description/>
+    </ComponentBox>
+    <ComponentBox InstanceName="CANFramesGenerator_2_1_1_1_1" reversed="false">
+      <Description/>
+    </ComponentBox>
+    <ComponentBox InstanceName="CANFrameViewer_1_1" reversed="false">
+      <Description/>
+    </ComponentBox>
+    <ComponentBox InstanceName="DIDRequest_2_1" reversed="false">
+      <Description/>
+    </ComponentBox>
+    <ComponentBox InstanceName="DMS_indicator_1" reversed="false">
+      <Description/>
+    </ComponentBox>
+    <ComponentBox InstanceName="DTCRequestFrameGenerator_1" reversed="false">
+      <Description/>
+    </ComponentBox>
+    <ComponentBox InstanceName="DTCRequestFramesGenerator_1" reversed="false">
+      <Description/>
+    </ComponentBox>
+    <ComponentBox InstanceName="hands_off_wheel_true_1" reversed="false">
+      <Description/>
+    </ComponentBox>
+    <ComponentBox InstanceName="if_recv_1" reversed="false">
+      <Description/>
+    </ComponentBox>
+    <ComponentBox InstanceName="LCC_1" reversed="false">
+      <Description/>
+    </ComponentBox>
+    <ComponentBox InstanceName="number_generator_2_2" reversed="false">
+      <Description/>
+    </ComponentBox>
+    <ComponentBox InstanceName="number_generator_3_1" reversed="false">
+      <Description/>
+    </ComponentBox>
+    <ComponentBox InstanceName="numbers_converter_1" reversed="false">
+      <Description/>
+    </ComponentBox>
+    <ComponentBox InstanceName="numbers_converter_1_1" reversed="false">
+      <Description/>
+    </ComponentBox>
+    <ComponentBox InstanceName="output1_1" reversed="false">
+      <Description/>
+    </ComponentBox>
+    <ComponentBox InstanceName="PCSM_to_Prtctd_Ratio_1" reversed="false">
+      <Description/>
+    </ComponentBox>
+    <ComponentBox InstanceName="simple_button_period_output_1_1" reversed="false">
+      <Description/>
+    </ComponentBox>
+    <ComponentBox InstanceName="simple_button_period_output_1_2" reversed="false">
+      <Description/>
+    </ComponentBox>
+    <ComponentBox InstanceName="socketcan2_1_1" reversed="false">
+      <Description/>
+    </ComponentBox>
+    <ComponentBox InstanceName="speed_1" reversed="false">
+      <Description/>
+    </ComponentBox>
+    <ComponentBox InstanceName="StrgReq_Status_1" reversed="false">
+      <Description/>
+    </ComponentBox>
+    <ComponentBox InstanceName="StrgReqAngVal_1" reversed="false">
+      <Description/>
+    </ComponentBox>
+    <ComponentBox InstanceName="StrqReqAFtr_1" reversed="false">
+      <Description/>
+    </ComponentBox>
+    <ComponentBox InstanceName="TriggerPCSM_1" reversed="false">
+      <Description/>
+    </ComponentBox>
+    <ConnectionShape InstanceName="ActvSftyOprtrCrtclNtfns_1.ARCTrigger" color="0"/>
+    <ConnectionShape InstanceName="ActvSftyOprtrCrtclNtfns_1.Filler" color="0"/>
+    <ConnectionShape InstanceName="ActvSftyOprtrCrtclNtfns_1.LKATakeStrgIndOnAuth" color="0"/>
+    <ConnectionShape InstanceName="ActvSftyOprtrCrtclNtfns_1.SetAntireplayCount" color="0"/>
+    <ConnectionShape InstanceName="ActvSftyOprtrCrtclNtfns_1.SuprRmtPrkDrLckReq" color="0"/>
+    <ConnectionShape InstanceName="ActvSftyOprtrCrtclNtfns_1.SuprRmtPrkPwrModeReq" color="0"/>
+    <ConnectionShape InstanceName="ActvSftyOprtrCrtclNtfns_1.TriggerPCSM" color="0"/>
+    <ConnectionShape InstanceName="adaptive_cruise_control_1.CAN2" color="0"/>
+    <ConnectionShape InstanceName="Add_MAC_FCnt_1.antireplayCnt" color="0"/>
+    <ConnectionShape InstanceName="Add_MAC_FCnt_1.FCnt" color="0"/>
+    <ConnectionShape InstanceName="Add_MAC_FCnt_1.InputFrame" color="0"/>
+    <ConnectionShape InstanceName="Add_MAC_FCnt_1.InputFrames" color="0"/>
+    <ConnectionShape InstanceName="Add_MAC_FCnt_1_1.InputFrames" color="0"/>
+    <ConnectionShape InstanceName="AddMAC_1.antireplayCounter" color="0"/>
+    <ConnectionShape InstanceName="AddMAC_1.ARC" color="0"/>
+    <ConnectionShape InstanceName="AddMAC_1.CANmsg" color="0"/>
+    <ConnectionShape InstanceName="AddMAC_1.count" color="0"/>
+    <ConnectionShape InstanceName="AddMAC_1.data" color="0"/>
+    <ConnectionShape InstanceName="AddMAC_1.expMACBytes" color="0"/>
+    <ConnectionShape InstanceName="AddMAC_1.FCnt" color="0"/>
+    <ConnectionShape InstanceName="AddMAC_1.msgFCntLen" color="0"/>
+    <ConnectionShape InstanceName="AddMAC_1.msgId" color="0"/>
+    <ConnectionShape InstanceName="AddMAC_1.msgID" color="0"/>
+    <ConnectionShape InstanceName="AddMAC_1.msgMACLen" color="0"/>
+    <ConnectionShape InstanceName="AddMAC_1.msgPayload" color="0"/>
+    <ConnectionShape InstanceName="AddMAC_1.msgType" color="0"/>
+    <ConnectionShape InstanceName="AliveRollingCounter_1.Trigger" color="0"/>
+    <ConnectionShape InstanceName="antireplayCounter_1.InitCnt" color="0"/>
+    <ConnectionShape InstanceName="antireplayCounter_1.InputFrame" color="0"/>
+    <ConnectionShape InstanceName="AntireplayCounter_1.SetCount" color="0"/>
+    <ConnectionShape InstanceName="antireplayCounter_1.SetCounter" color="0"/>
+    <ConnectionShape InstanceName="AntireplayCounter_1.Trigger" color="0"/>
+    <ConnectionShape InstanceName="antireplayCounter_1.TriggerFrame" color="0"/>
+    <ConnectionShape InstanceName="AntireplayCounter_1.TriggerPCSM" color="0"/>
+    <ConnectionShape InstanceName="antireplayCounter_2.SetCount" color="0"/>
+    <ConnectionShape InstanceName="antireplayCounter_2.Trigger" color="0"/>
+    <ConnectionShape InstanceName="antireplayCounter_2.TriggerPCSM" color="0"/>
+    <ConnectionShape InstanceName="APACtlAngFrameViewer.input" color="0"/>
+    <ConnectionShape InstanceName="APACtlAngFrameViewer.input0" color="0"/>
+    <ConnectionShape InstanceName="APACtlAngFrameViewer_1.input0" color="0"/>
+    <ConnectionShape InstanceName="auth_steering_torque_1::AuthSrlDat160.AASILASStrgReqAFtr" color="0"/>
+    <ConnectionShape InstanceName="auth_steering_torque_1::AuthSrlDat160.AASILASStrgReqAngVal" color="0"/>
+    <ConnectionShape InstanceName="auth_steering_torque_1::AuthSrlDat160.AASILASStrgReqHiResTrqVal" color="0"/>
+    <ConnectionShape InstanceName="auth_steering_torque_1::AuthSrlDat160.AASILASStrgReqLnFllwgRrStrgInhb" color="0"/>
+    <ConnectionShape InstanceName="auth_steering_torque_1::AuthSrlDat160.AASILASStrgReqSts" color="0"/>
+    <ConnectionShape InstanceName="auth_steering_torque_1::AuthSrlDat160.AASILASStrgReqTyp" color="0"/>
+    <ConnectionShape InstanceName="auth_steering_torque_1::AuthSrlDat160.ARCTrigger" color="0"/>
+    <ConnectionShape InstanceName="auth_steering_torque_1::AuthSrlDat160.Filler" color="0"/>
+    <ConnectionShape InstanceName="auth_steering_torque_1::AuthSrlDat160.TriggerPCSM" color="0"/>
+    <ConnectionShape InstanceName="auth_steering_torque_1::AuthSrlDat160_1_1.AASILASStrgReqAFtr" color="0"/>
+    <ConnectionShape InstanceName="auth_steering_torque_1::AuthSrlDat160_1_1.AASILASStrgReqAngVal" color="0"/>
+    <ConnectionShape InstanceName="auth_steering_torque_1::AuthSrlDat160_1_1.AASILASStrgReqHiResTrqVal" color="0"/>
+    <ConnectionShape InstanceName="auth_steering_torque_1::AuthSrlDat160_1_1.AASILASStrgReqLnFllwgRrStrgInhb" color="0"/>
+    <ConnectionShape InstanceName="auth_steering_torque_1::AuthSrlDat160_1_1.AASILASStrgReqSts" color="0"/>
+    <ConnectionShape InstanceName="auth_steering_torque_1::AuthSrlDat160_1_1.AASILASStrgReqTyp" color="0"/>
+    <ConnectionShape InstanceName="auth_steering_torque_1::AuthSrlDat160_1_1.ARCTrigger" color="0"/>
+    <ConnectionShape InstanceName="auth_steering_torque_1::AuthSrlDat160_1_1.Filler" color="0"/>
+    <ConnectionShape InstanceName="auth_steering_torque_1::AuthSrlDat160_1_1.SetAntireplayCount" color="0"/>
+    <ConnectionShape InstanceName="auth_steering_torque_1::AuthSrlDat160_1_1.TriggerPCSM" color="0"/>
+    <ConnectionShape InstanceName="AuthAPACtlAng_1.ARCTrigger" color="0"/>
+    <ConnectionShape InstanceName="AuthAPACtlAng_1.CtlAngReqActvAuth" color="0"/>
+    <ConnectionShape InstanceName="AuthAPACtlAng_1.CtlAngReqValAuth" color="0"/>
+    <ConnectionShape InstanceName="AuthAPACtlAng_1.SetAntireplayCount" color="0"/>
+    <ConnectionShape InstanceName="AuthAPACtlAng_1.TriggerPCSM" color="0"/>
+    <ConnectionShape InstanceName="AuthAPASts_1.ARCTrigger" color="0"/>
+    <ConnectionShape InstanceName="AuthAPASts_1.MaxVelAuth" color="0"/>
+    <ConnectionShape InstanceName="AuthAPASts_1.SetAntireplayCount" color="0"/>
+    <ConnectionShape InstanceName="AuthAPASts_1.StopDistAuth" color="0"/>
+    <ConnectionShape InstanceName="AuthAPASts_1.StsAuth" color="0"/>
+    <ConnectionShape InstanceName="AuthAPASts_1.TransRngActvnReqdAuth" color="0"/>
+    <ConnectionShape InstanceName="AuthAPASts_1.TransRngReqAuth" color="0"/>
+    <ConnectionShape InstanceName="AuthAPASts_1.TriggerPCSM" color="0"/>
+    <ConnectionShape InstanceName="AuthCAN_1.APASts_Prtctd_PDU_AE44SP_AE44MaxVelAuth_1" color="0"/>
+    <ConnectionShape InstanceName="AuthCAN_1.APASts_Prtctd_PDU_AE44SP_AE44StopDistAuth_1" color="0"/>
+    <ConnectionShape InstanceName="AuthCAN_1.APASts_Prtctd_PDU_AE44SP_AE44StsAuth_1" color="0"/>
+    <ConnectionShape InstanceName="AuthCAN_1.APASts_Prtctd_PDU_AE44SP_AE44TransRngActvnReqdAuth_1" color="0"/>
+    <ConnectionShape InstanceName="AuthCAN_1.APASts_Prtctd_PDU_AE44SP_AE44TransRngReqAuth_1" color="0"/>
+    <ConnectionShape InstanceName="AuthCAN_1.APASts_Prtctd_PDU_AE44SP_FCnt_1" color="0"/>
+    <ConnectionShape InstanceName="AuthCAN_1.APASts_Prtctd_PDU_AE44SP_MAC_1" color="0"/>
+    <ConnectionShape InstanceName="AuthCAN_1.SetCount_1" color="0"/>
+    <ConnectionShape InstanceName="AuthCAN_1.Trigger_1" color="0"/>
+    <ConnectionShape InstanceName="AuthCAN_1.TriggerPCSM_1" color="0"/>
+    <ConnectionShape InstanceName="AuthSrlDat160_1.AASILASStrgReqAFtr" color="0"/>
+    <ConnectionShape InstanceName="AuthSrlDat160_1.AASILASStrgReqAngVal" color="0"/>
+    <ConnectionShape InstanceName="AuthSrlDat160_1.AASILASStrgReqHiResTrqVal" color="0"/>
+    <ConnectionShape InstanceName="AuthSrlDat160_1.AASILASStrgReqLnFllwgRrStrgInhb" color="0"/>
+    <ConnectionShape InstanceName="AuthSrlDat160_1.AASILASStrgReqSts" color="0"/>
+    <ConnectionShape InstanceName="AuthSrlDat160_1.AASILASStrgReqTyp" color="0"/>
+    <ConnectionShape InstanceName="AuthSrlDat160_1.ARCTrigger" color="0"/>
+    <ConnectionShape InstanceName="AuthSrlDat160_1.Filler" color="0"/>
+    <ConnectionShape InstanceName="AuthSrlDat160_1.SetAntireplayCount" color="0"/>
+    <ConnectionShape InstanceName="AuthSrlDat160_1.TriggerPCSM" color="0"/>
+    <ConnectionShape InstanceName="AuthSrlDat160FrameViewer.input" color="0"/>
+    <ConnectionShape InstanceName="AuthSrlDat160FrameViewer.input0" color="0"/>
+    <ConnectionShape InstanceName="AuthSrlDat160FrameViewer_1.input0" color="0"/>
+    <ConnectionShape InstanceName="AuthSrlDat34_1.ARCTrigger" color="0"/>
+    <ConnectionShape InstanceName="AuthSrlDat34_1.Filler" color="0"/>
+    <ConnectionShape InstanceName="AuthSrlDat34_1.LnCntrCtlIndReqAuth" color="0"/>
+    <ConnectionShape InstanceName="AuthSrlDat34_1.LnCntrVehStopdAuth" color="0"/>
+    <ConnectionShape InstanceName="AuthSrlDat34_1.LnCntrWrnExtdIndReqAuth" color="0"/>
+    <ConnectionShape InstanceName="AuthSrlDat34_1.LnFllwFltIndcdAtBrkEnAuth" color="0"/>
+    <ConnectionShape InstanceName="AuthSrlDat34_1.LnFllwgGenChEvntStatAuth" color="0"/>
+    <ConnectionShape InstanceName="AuthSrlDat34_1.LnFllwgLHSChEvntStatAuth" color="0"/>
+    <ConnectionShape InstanceName="AuthSrlDat34_1.LnFllwgRHSChEvntStatAuth" color="0"/>
+    <ConnectionShape InstanceName="AuthSrlDat34_1.SetAntireplayCount" color="0"/>
+    <ConnectionShape InstanceName="AuthSrlDat34_1.SrrndVsnRLSModeCmdAuth" color="0"/>
+    <ConnectionShape InstanceName="AuthSrlDat34_1.TriggerPCSM" color="0"/>
+    <ConnectionShape InstanceName="AuthSrlDat35_1.ACCActvAuth" color="0"/>
+    <ConnectionShape InstanceName="AuthSrlDat35_1.ARCTrigger" color="0"/>
+    <ConnectionShape InstanceName="AuthSrlDat35_1.ClsnImntBrkgAxlTrqRqActvAuth" color="0"/>
+    <ConnectionShape InstanceName="AuthSrlDat35_1.ClsnImntBrkgAxlTrqRqAuth" color="0"/>
+    <ConnectionShape InstanceName="AuthSrlDat35_1.Filler" color="0"/>
+    <ConnectionShape InstanceName="AuthSrlDat35_1.LnCntrCtlAclPedLimRqAuth" color="0"/>
+    <ConnectionShape InstanceName="AuthSrlDat35_1.LnCntrCtlActvAuth" color="0"/>
+    <ConnectionShape InstanceName="AuthSrlDat35_1.ReqActvAuth" color="0"/>
+    <ConnectionShape InstanceName="AuthSrlDat35_1.ReqMagAuth" color="0"/>
+    <ConnectionShape InstanceName="AuthSrlDat35_1.ReqTypAuth" color="0"/>
+    <ConnectionShape InstanceName="AuthSrlDat35_1.SetAntireplayCount" color="0"/>
+    <ConnectionShape InstanceName="AuthSrlDat35_1.TriggerPCSM" color="0"/>
+    <ConnectionShape InstanceName="AuthSrlDat35_1.TrqActvAuth" color="0"/>
+    <ConnectionShape InstanceName="AuthSrlDat35_1.TrqDrvAstGoStatAuth" color="0"/>
+    <ConnectionShape InstanceName="AuthSrlDat35_1.TrqMagAuth" color="0"/>
+    <ConnectionShape InstanceName="AuthSrlDat35_1.TrqTypAuth" color="0"/>
+    <ConnectionShape InstanceName="AuthSrlDat35FrameViewer.input0" color="0"/>
+    <ConnectionShape InstanceName="AuthSrlDat35FrameViewer_1.input0" color="0"/>
+    <ConnectionShape InstanceName="autosar_pdu_encoder_1.i_pdu_struct" color="0"/>
+    <ConnectionShape InstanceName="autosar_pdu_struct_merger_1.i_AECU44SP_AECU44MaxVelAuth" color="0"/>
+    <ConnectionShape InstanceName="autosar_pdu_struct_merger_1.i_AECU44SP_AECU44StopDistAuth" color="0"/>
+    <ConnectionShape InstanceName="autosar_pdu_struct_merger_1.i_AECU44SP_AECU44StsAuth" color="0"/>
+    <ConnectionShape InstanceName="autosar_pdu_struct_merger_1.i_AECU44SP_AECU44TransRngActvnReqdAuth" color="0"/>
+    <ConnectionShape InstanceName="autosar_pdu_struct_merger_1.i_AECU44SP_AECU44TransRngReqAuth" color="0"/>
+    <ConnectionShape InstanceName="autosar_pdu_struct_merger_1.i_AECU44SP_ARC" color="0"/>
+    <ConnectionShape InstanceName="autosar_pdu_struct_merger_1.i_AECU44SP_FCnt" color="0"/>
+    <ConnectionShape InstanceName="autosar_pdu_struct_merger_1.i_AECU44SP_MAC" color="0"/>
+    <ConnectionShape InstanceName="autosar_pdu_to_frame_1.i_pdu" color="0"/>
+    <ConnectionShape InstanceName="ByteFlip_1.In" color="0"/>
+    <ConnectionShape InstanceName="Calc_1.PCSM" color="0"/>
+    <ConnectionShape InstanceName="Calc_1.signal" color="0"/>
+    <ConnectionShape InstanceName="CAN2.i_frame" color="0"/>
+    <ConnectionShape InstanceName="can_filter_1.can_frames_in" color="0"/>
+    <ConnectionShape InstanceName="CANDecoder_1.input" color="0"/>
+    <ConnectionShape InstanceName="CANDecoder_6.input" color="0"/>
+    <ConnectionShape InstanceName="CANEncoder_1.DMS_Status_DMS_State" color="0"/>
+    <ConnectionShape InstanceName="CANEncoder_2_1.ASDOORSW_BCM_C_DRSWAS" color="0"/>
+    <ConnectionShape InstanceName="CANEncoder_2_1.DA_SW_INFO_DISPLAY_C_DISP_STATUS" color="0"/>
+    <ConnectionShape InstanceName="CANEncoder_2_1.DOORSW_BCM_C_DRSWDR" color="0"/>
+    <ConnectionShape InstanceName="CANEncoder_2_1.MVCPA_DISP_C_MVCPA_ALIVE_COUNTER" color="0"/>
+    <ConnectionShape InstanceName="CANEncoder_2_1.TRUNKSW_BCM_C_TRUNKSW" color="0"/>
+    <ConnectionShape InstanceName="canfd_filter_1.canfd_frames_in" color="0"/>
+    <ConnectionShape InstanceName="CANFDDecoder_1.input" color="0"/>
+    <ConnectionShape InstanceName="CANFDDecoder_1_1.input" color="0"/>
+    <ConnectionShape InstanceName="CANFDDecoder_2.input" color="0"/>
+    <ConnectionShape InstanceName="CANFDDecoder_3.input" color="0"/>
+    <ConnectionShape InstanceName="CANFDDecoder_3_1.input" color="0"/>
+    <ConnectionShape InstanceName="CANFDDecoder_3_2.input" color="0"/>
+    <ConnectionShape InstanceName="CANFDEncoder_1.APASts_Prtctd_PDU_AE44SP_AE44MaxVelAuth" color="0"/>
+    <ConnectionShape InstanceName="CANFDEncoder_1.APASts_Prtctd_PDU_AE44SP_AE44StopDistAuth" color="0"/>
+    <ConnectionShape InstanceName="CANFDEncoder_1.APASts_Prtctd_PDU_AE44SP_AE44StsAuth" color="0"/>
+    <ConnectionShape InstanceName="CANFDEncoder_1.APASts_Prtctd_PDU_AE44SP_AE44TransRngActvnReqdAuth" color="0"/>
+    <ConnectionShape InstanceName="CANFDEncoder_1.APASts_Prtctd_PDU_AE44SP_AE44TransRngReqAuth" color="0"/>
+    <ConnectionShape InstanceName="CANFDEncoder_1.APASts_Prtctd_PDU_AE44SP_ARC" color="0"/>
+    <ConnectionShape InstanceName="CANFDEncoder_1.APASts_Prtctd_PDU_AE44SP_FCnt" color="0"/>
+    <ConnectionShape InstanceName="CANFDEncoder_1.APASts_Prtctd_PDU_AE44SP_MAC" color="0"/>
+    <ConnectionShape InstanceName="CANFDEncoder_1.PDU_2078_AdpAndCnvntlCruzCtlIndReq" color="0"/>
+    <ConnectionShape InstanceName="CANFDEncoder_1.PDU_2157_ACCDrSlctdSpd" color="0"/>
+    <ConnectionShape InstanceName="CANFDEncoder_1.PDU_2157_ACCDrSlctdSpdIndOn" color="0"/>
+    <ConnectionShape InstanceName="CANFDEncoder_1.PDU_2258_DMSDrwIntnDrvrLvl1ChmEvntStat" color="0"/>
+    <ConnectionShape InstanceName="CANFDEncoder_1.PDU_2258_DMSDrwIntnDrvrLvl2ChmEvntStat" color="0"/>
+    <ConnectionShape InstanceName="CANFDEncoder_1_1.APASts_PCSM_PDU_AE44Sts_PCSM" color="0"/>
+    <ConnectionShape InstanceName="CANFDEncoder_2.PDU_2258_DMSDrwIntnDrvrLvl1ChmEvntStat" color="0"/>
+    <ConnectionShape InstanceName="CANFDEncoder_2.PDU_2258_DMSDrwIntnDrvrLvl2ChmEvntStat" color="0"/>
+    <ConnectionShape InstanceName="CANFDEncoder_2.PDU_2259_DMSDrwIntnDrvrHptcStReqPuls" color="0"/>
+    <ConnectionShape InstanceName="CANFDEncoder_2.PDU_2259_DMSDrwIntnDrvrWrnIndReq" color="0"/>
+    <ConnectionShape InstanceName="CANFDEncoder_3.PDU_8063_Sig7689" color="0"/>
+    <ConnectionShape InstanceName="CANFDEncoder_3.PDU_8063_Sig7691" color="0"/>
+    <ConnectionShape InstanceName="CANFDMux_1.frame0" color="0"/>
+    <ConnectionShape InstanceName="CANFDMux_1.frame1" color="0"/>
+    <ConnectionShape InstanceName="CANFDMux_1.oCANFD0" color="0"/>
+    <ConnectionShape InstanceName="CANFDMux_1.oCANFD1" color="0"/>
+    <ConnectionShape InstanceName="CANFDMux_2.oCANFD0" color="0"/>
+    <ConnectionShape InstanceName="CANFDMux_2.oCANFD1" color="0"/>
+    <ConnectionShape InstanceName="CANFDMux_3.oCANFD0" color="0"/>
+    <ConnectionShape InstanceName="CANFDMux_3.oCANFD1" color="0"/>
+    <ConnectionShape InstanceName="CANFDMux_3_1.oCANFD0" color="0"/>
+    <ConnectionShape InstanceName="CANFDMux_3_1.oCANFD1" color="0"/>
+    <ConnectionShape InstanceName="CANFrameViewer_1.input" color="0"/>
+    <ConnectionShape InstanceName="CANFrameViewer_1.input0" color="0"/>
+    <ConnectionShape InstanceName="CANFrameViewer_1.input1" color="0"/>
+    <ConnectionShape InstanceName="CANFrameViewer_1_1.input" color="0"/>
+    <ConnectionShape InstanceName="CANFrameViewer_1_1.input0" color="0"/>
+    <ConnectionShape InstanceName="CANFrameViewer_Autosar.input" color="0"/>
+    <ConnectionShape InstanceName="CANMux_1.oCAN0" color="0"/>
+    <ConnectionShape InstanceName="CANMux_1.oCAN1" color="0"/>
+    <ConnectionShape InstanceName="CANMux_1.oCAN2" color="0"/>
+    <ConnectionShape InstanceName="CANMux_1.oCAN3" color="0"/>
+    <ConnectionShape InstanceName="CANMux_1.oCAN4" color="0"/>
+    <ConnectionShape InstanceName="CANMux_1.oCAN5" color="0"/>
+    <ConnectionShape InstanceName="Condition_1.a" color="0"/>
+    <ConnectionShape InstanceName="Condition_1.button" color="0"/>
+    <ConnectionShape InstanceName="Condition_1.generate" color="0"/>
+    <ConnectionShape InstanceName="Condition_1.generator" color="0"/>
+    <ConnectionShape InstanceName="Condition_1_1.button" color="0"/>
+    <ConnectionShape InstanceName="Condition_3.speed" color="0"/>
+    <ConnectionShape InstanceName="Condition_3.speed_limit" color="0"/>
+    <ConnectionShape InstanceName="convert_to_int32_1.input" color="0"/>
+    <ConnectionShape InstanceName="counter_1.to_count" color="0"/>
+    <ConnectionShape InstanceName="counter_2.to_count" color="0"/>
+    <ConnectionShape InstanceName="DataViewer_1.input_0" color="0"/>
+    <ConnectionShape InstanceName="DataViewer_1.input_1" color="0"/>
+    <ConnectionShape InstanceName="DataViewer_1.input_10" color="0"/>
+    <ConnectionShape InstanceName="DataViewer_1.input_11" color="0"/>
+    <ConnectionShape InstanceName="DataViewer_1.input_12" color="0"/>
+    <ConnectionShape InstanceName="DataViewer_1.input_2" color="0"/>
+    <ConnectionShape InstanceName="DataViewer_1.input_3" color="0"/>
+    <ConnectionShape InstanceName="DataViewer_1.input_4" color="0"/>
+    <ConnectionShape InstanceName="DataViewer_1.input_5" color="0"/>
+    <ConnectionShape InstanceName="DataViewer_1.input_6" color="0"/>
+    <ConnectionShape InstanceName="DataViewer_1.input_7" color="0"/>
+    <ConnectionShape InstanceName="DataViewer_1.input_8" color="0"/>
+    <ConnectionShape InstanceName="DataViewer_1.input_9" color="0"/>
+    <ConnectionShape InstanceName="DataViewer_2.input_0" color="0"/>
+    <ConnectionShape InstanceName="DataViewer_2.input_1" color="0"/>
+    <ConnectionShape InstanceName="DataViewer_3.input_0" color="0"/>
+    <ConnectionShape InstanceName="Devectorizer_1_1.iVector" color="0"/>
+    <ConnectionShape InstanceName="Devectorizer_2_1.iVector" color="0"/>
+    <ConnectionShape InstanceName="Devectorizer_3_1.iVector" color="0"/>
+    <ConnectionShape InstanceName="Devectorizer_4_1.iVector" color="0"/>
+    <ConnectionShape InstanceName="DIDDecoder_1.Reponse" color="0"/>
+    <ConnectionShape InstanceName="DIDDecoder_1.ReponseFrames" color="0"/>
+    <ConnectionShape InstanceName="DIDDecoder_1_1.ReponseFrames" color="0"/>
+    <ConnectionShape InstanceName="DIDDecoder_2.ReponseFrames" color="0"/>
+    <ConnectionShape InstanceName="DIDDecoder_2_1.ReponseFrames" color="0"/>
+    <ConnectionShape InstanceName="DIDRequest_1.ContRequest" color="0"/>
+    <ConnectionShape InstanceName="DIDRequest_1.TriggerRequest" color="0"/>
+    <ConnectionShape InstanceName="DIDRequest_2.ContRequest" color="0"/>
+    <ConnectionShape InstanceName="DIDRequest_2.TriggerRequest" color="0"/>
+    <ConnectionShape InstanceName="DIDRequest_3.ContRequest" color="0"/>
+    <ConnectionShape InstanceName="DIDRequest_3.TriggerRequest" color="0"/>
+    <ConnectionShape InstanceName="DIDRequest_ucr_1.ContRequest" color="0"/>
+    <ConnectionShape InstanceName="DMS_Chime_level_1.state" color="0"/>
+    <ConnectionShape InstanceName="DMS_Chime_level_2.cav_lock" color="0"/>
+    <ConnectionShape InstanceName="DMS_Chime_level_2.state" color="0"/>
+    <ConnectionShape InstanceName="DMS_State.state" color="0"/>
+    <ConnectionShape InstanceName="enable.i_trigger" color="0"/>
+    <ConnectionShape InstanceName="enable_1.i_trigger" color="0"/>
+    <ConnectionShape InstanceName="enable_1_1.i_trigger" color="0"/>
+    <ConnectionShape InstanceName="EVCCAN.i_frame" color="0"/>
+    <ConnectionShape InstanceName="FCM_Track3_1.GM_CAN8" color="0"/>
+    <ConnectionShape InstanceName="FCODP_FVLB_1.CANFD" color="0"/>
+    <ConnectionShape InstanceName="FCODP_FVVO_1.CAN8" color="0"/>
+    <ConnectionShape InstanceName="Gauge_1.input" color="0"/>
+    <ConnectionShape InstanceName="Gauge_6.input" color="0"/>
+    <ConnectionShape InstanceName="ImageViewer_1.input" color="0"/>
+    <ConnectionShape InstanceName="ImageViewer_1_2.input" color="0"/>
+    <ConnectionShape InstanceName="ImageViewer_1_3.input" color="0"/>
+    <ConnectionShape InstanceName="ImageViewer_1_4.input" color="0"/>
+    <ConnectionShape InstanceName="kmph_to_mph_1.kmph" color="0"/>
+    <ConnectionShape InstanceName="Led_7.input0" color="0"/>
+    <ConnectionShape InstanceName="Led_7_4.input0" color="0"/>
+    <ConnectionShape InstanceName="MACAuth_1.data" color="0"/>
+    <ConnectionShape InstanceName="MACAuth_1.expMACBytes" color="0"/>
+    <ConnectionShape InstanceName="Map_bird_view.input" color="0"/>
+    <ConnectionShape InstanceName="maximum_deceleration_1.torque" color="0"/>
+    <ConnectionShape InstanceName="minimum_deceleration_1.torque" color="0"/>
+    <ConnectionShape InstanceName="multiplexer_1.input_1" color="0"/>
+    <ConnectionShape InstanceName="multiplexer_1.input_2" color="0"/>
+    <ConnectionShape InstanceName="multiplexer_1.input_3" color="0"/>
+    <ConnectionShape InstanceName="multiplexer_2_1.input_2" color="0"/>
+    <ConnectionShape InstanceName="NMEA_GPGGA_frame_decoder_6.iStream8" color="0"/>
+    <ConnectionShape InstanceName="NMEA_GPRMC_frame_decoder_15.iStream8" color="0"/>
+    <ConnectionShape InstanceName="numbers_converter_1.input" color="0"/>
+    <ConnectionShape InstanceName="numbers_converter_2.input" color="0"/>
+    <ConnectionShape InstanceName="Oscilloscope_1.inputA" color="0"/>
+    <ConnectionShape InstanceName="Oscilloscope_5.inputA" color="0"/>
+    <ConnectionShape InstanceName="Oscilloscope_5.inputB" color="0"/>
+    <ConnectionShape InstanceName="PythonBridge_1.current_speed" color="0"/>
+    <ConnectionShape InstanceName="PythonBridge_1.dms_confidence" color="0"/>
+    <ConnectionShape InstanceName="PythonBridge_1.dms_gaze_status" color="0"/>
+    <ConnectionShape InstanceName="PythonBridge_1.dms_requested" color="0"/>
+    <ConnectionShape InstanceName="PythonBridge_1.hands_off_wheel" color="0"/>
+    <ConnectionShape InstanceName="PythonBridge_1.in" color="0"/>
+    <ConnectionShape InstanceName="PythonBridge_1.vehicle_speed_mps" color="0"/>
+    <ConnectionShape InstanceName="PythonBridge_1_1.FCODP_FVLB" color="0"/>
+    <ConnectionShape InstanceName="PythonBridge_2.current_speed_mps" color="0"/>
+    <ConnectionShape InstanceName="PythonBridge_2.left_lane_boundary" color="0"/>
+    <ConnectionShape InstanceName="PythonBridge_2.right_lane_boundary" color="0"/>
+    <ConnectionShape InstanceName="RecFile_1.can_filter_1.can_frames_out.input" color="0"/>
+    <ConnectionShape InstanceName="RecFile_1.CANMux_1.oCAN.input" color="0"/>
+    <ConnectionShape InstanceName="RecFile_1.DIDDecoder_1.ContRequest.input" color="0"/>
+    <ConnectionShape InstanceName="RecFile_1.DIDDecoder_1.count_2c.input" color="0"/>
+    <ConnectionShape InstanceName="RecFile_1.DIDDecoder_1.count_66.input" color="0"/>
+    <ConnectionShape InstanceName="RecFile_1.DIDDecoder_1.count_6a.input" color="0"/>
+    <ConnectionShape InstanceName="RecFile_1.DIDDecoder_1.Status.input" color="0"/>
+    <ConnectionShape InstanceName="RecFile_1.socketcan2_1.o_frame.input" color="0"/>
+    <ConnectionShape InstanceName="RecFile_2.socketcan2_1.o_frame.input" color="0"/>
+    <ConnectionShape InstanceName="retrieve_counter_1::DIDRequest.ContRequest" color="0"/>
+    <ConnectionShape InstanceName="retrieve_counter_1::DIDRequest.TriggerRequest" color="0"/>
+    <ConnectionShape InstanceName="retrieve_counter_1::DIDRequest_1.ContRequest" color="0"/>
+    <ConnectionShape InstanceName="retrieve_counter_1::DIDRequest_1.TriggerRequest" color="0"/>
+    <ConnectionShape InstanceName="retrieve_counter_1::DIDRequest_1_1.ContRequest" color="0"/>
+    <ConnectionShape InstanceName="retrieve_counter_1::DIDRequest_1_1.TriggerRequest" color="0"/>
+    <ConnectionShape InstanceName="SampleRate_1.input" color="0"/>
+    <ConnectionShape InstanceName="send_APA_steering_angle_command_1.angle" color="0"/>
+    <ConnectionShape InstanceName="send_APA_steering_angle_command_1.enable" color="0"/>
+    <ConnectionShape InstanceName="send_APA_steering_angle_command_1::AuthAPACtlAng.ARCTrigger" color="0"/>
+    <ConnectionShape InstanceName="send_APA_steering_angle_command_1::AuthAPACtlAng.CtlAngReqActvAuth" color="0"/>
+    <ConnectionShape InstanceName="send_APA_steering_angle_command_1::AuthAPACtlAng.CtlAngReqValAuth" color="0"/>
+    <ConnectionShape InstanceName="send_APA_steering_angle_command_1::AuthAPACtlAng.SetAntireplayCount" color="0"/>
+    <ConnectionShape InstanceName="send_APA_steering_angle_command_1::AuthAPACtlAng.TriggerPCSM" color="0"/>
+    <ConnectionShape InstanceName="send_APA_steering_angle_command_1::AuthAPACtlAng_1_1.ARCTrigger" color="0"/>
+    <ConnectionShape InstanceName="send_APA_steering_angle_command_1::AuthAPACtlAng_1_1.CtlAngReqActvAuth" color="0"/>
+    <ConnectionShape InstanceName="send_APA_steering_angle_command_1::AuthAPACtlAng_1_1.CtlAngReqValAuth" color="0"/>
+    <ConnectionShape InstanceName="send_APA_steering_angle_command_1::AuthAPACtlAng_1_1.SetAntireplayCount" color="0"/>
+    <ConnectionShape InstanceName="send_APA_steering_angle_command_1::AuthAPACtlAng_1_1.TriggerPCSM" color="0"/>
+    <ConnectionShape InstanceName="send_APA_steering_angle_command_1::CANFDMux.oCANFD0" color="0"/>
+    <ConnectionShape InstanceName="send_APA_steering_angle_command_1::CANFDMux.oCANFD1" color="0"/>
+    <ConnectionShape InstanceName="send_APA_steering_angle_command_1::DIDDecoder_1_1.ReponseFrames" color="0"/>
+    <ConnectionShape InstanceName="send_APA_steering_angle_command_1::DIDRequest.ContRequest" color="0"/>
+    <ConnectionShape InstanceName="send_APA_steering_angle_command_1::DIDRequest.TriggerRequest" color="0"/>
+    <ConnectionShape InstanceName="send_APA_steering_angle_command_1::DIDRequest_1_1.ContRequest" color="0"/>
+    <ConnectionShape InstanceName="send_APA_steering_angle_command_1::DIDRequest_1_1.TriggerRequest" color="0"/>
+    <ConnectionShape InstanceName="send_APA_steering_angle_command_1_1::AuthAPACtlAng.ARCTrigger" color="0"/>
+    <ConnectionShape InstanceName="send_APA_steering_angle_command_1_1::AuthAPACtlAng.CtlAngReqActvAuth" color="0"/>
+    <ConnectionShape InstanceName="send_APA_steering_angle_command_1_1::AuthAPACtlAng.CtlAngReqValAuth" color="0"/>
+    <ConnectionShape InstanceName="send_APA_steering_angle_command_1_1::AuthAPACtlAng.SetAntireplayCount" color="0"/>
+    <ConnectionShape InstanceName="send_APA_steering_angle_command_1_1::AuthAPACtlAng.TriggerPCSM" color="0"/>
+    <ConnectionShape InstanceName="send_APA_steering_angle_command_1_1::DIDRequest.ContRequest" color="0"/>
+    <ConnectionShape InstanceName="send_APA_steering_angle_command_1_1::DIDRequest.TriggerRequest" color="0"/>
+    <ConnectionShape InstanceName="send_brake_acceleration_command_1.deceleration_mps2" color="0"/>
+    <ConnectionShape InstanceName="send_brake_acceleration_command_1.deceleration_Nm" color="0"/>
+    <ConnectionShape InstanceName="send_brake_acceleration_command_1.enable" color="0"/>
+    <ConnectionShape InstanceName="send_brake_acceleration_command_1.speed_mph" color="0"/>
+    <ConnectionShape InstanceName="send_brake_acceleration_command_1::AuthSrlDat35.ACCActvAuth" color="0"/>
+    <ConnectionShape InstanceName="send_brake_acceleration_command_1::AuthSrlDat35.ARCTrigger" color="0"/>
+    <ConnectionShape InstanceName="send_brake_acceleration_command_1::AuthSrlDat35.ClsnImntBrkgAxlTrqRqActvAuth" color="0"/>
+    <ConnectionShape InstanceName="send_brake_acceleration_command_1::AuthSrlDat35.ClsnImntBrkgAxlTrqRqAuth" color="0"/>
+    <ConnectionShape InstanceName="send_brake_acceleration_command_1::AuthSrlDat35.Filler" color="0"/>
+    <ConnectionShape InstanceName="send_brake_acceleration_command_1::AuthSrlDat35.LnCntrCtlAclPedLimRqAuth" color="0"/>
+    <ConnectionShape InstanceName="send_brake_acceleration_command_1::AuthSrlDat35.LnCntrCtlActvAuth" color="0"/>
+    <ConnectionShape InstanceName="send_brake_acceleration_command_1::AuthSrlDat35.ReqActvAuth" color="0"/>
+    <ConnectionShape InstanceName="send_brake_acceleration_command_1::AuthSrlDat35.ReqMagAuth" color="0"/>
+    <ConnectionShape InstanceName="send_brake_acceleration_command_1::AuthSrlDat35.ReqTypAuth" color="0"/>
+    <ConnectionShape InstanceName="send_brake_acceleration_command_1::AuthSrlDat35.SetAntireplayCount" color="0"/>
+    <ConnectionShape InstanceName="send_brake_acceleration_command_1::AuthSrlDat35.TriggerPCSM" color="0"/>
+    <ConnectionShape InstanceName="send_brake_acceleration_command_1::AuthSrlDat35.TrqActvAuth" color="0"/>
+    <ConnectionShape InstanceName="send_brake_acceleration_command_1::AuthSrlDat35.TrqDrvAstGoStatAuth" color="0"/>
+    <ConnectionShape InstanceName="send_brake_acceleration_command_1::AuthSrlDat35.TrqMagAuth" color="0"/>
+    <ConnectionShape InstanceName="send_brake_acceleration_command_1::AuthSrlDat35.TrqTypAuth" color="0"/>
+    <ConnectionShape InstanceName="send_brake_acceleration_command_1::AuthSrlDat35_1_1.ACCActvAuth" color="0"/>
+    <ConnectionShape InstanceName="send_brake_acceleration_command_1::AuthSrlDat35_1_1.ARCTrigger" color="0"/>
+    <ConnectionShape InstanceName="send_brake_acceleration_command_1::AuthSrlDat35_1_1.ClsnImntBrkgAxlTrqRqActvAuth" color="0"/>
+    <ConnectionShape InstanceName="send_brake_acceleration_command_1::AuthSrlDat35_1_1.ClsnImntBrkgAxlTrqRqAuth" color="0"/>
+    <ConnectionShape InstanceName="send_brake_acceleration_command_1::AuthSrlDat35_1_1.Filler" color="0"/>
+    <ConnectionShape InstanceName="send_brake_acceleration_command_1::AuthSrlDat35_1_1.LnCntrCtlAclPedLimRqAuth" color="0"/>
+    <ConnectionShape InstanceName="send_brake_acceleration_command_1::AuthSrlDat35_1_1.LnCntrCtlActvAuth" color="0"/>
+    <ConnectionShape InstanceName="send_brake_acceleration_command_1::AuthSrlDat35_1_1.ReqActvAuth" color="0"/>
+    <ConnectionShape InstanceName="send_brake_acceleration_command_1::AuthSrlDat35_1_1.ReqMagAuth" color="0"/>
+    <ConnectionShape InstanceName="send_brake_acceleration_command_1::AuthSrlDat35_1_1.ReqTypAuth" color="0"/>
+    <ConnectionShape InstanceName="send_brake_acceleration_command_1::AuthSrlDat35_1_1.SetAntireplayCount" color="0"/>
+    <ConnectionShape InstanceName="send_brake_acceleration_command_1::AuthSrlDat35_1_1.TriggerPCSM" color="0"/>
+    <ConnectionShape InstanceName="send_brake_acceleration_command_1::AuthSrlDat35_1_1.TrqActvAuth" color="0"/>
+    <ConnectionShape InstanceName="send_brake_acceleration_command_1::AuthSrlDat35_1_1.TrqDrvAstGoStatAuth" color="0"/>
+    <ConnectionShape InstanceName="send_brake_acceleration_command_1::AuthSrlDat35_1_1.TrqMagAuth" color="0"/>
+    <ConnectionShape InstanceName="send_brake_acceleration_command_1::AuthSrlDat35_1_1.TrqTypAuth" color="0"/>
+    <ConnectionShape InstanceName="send_brake_acceleration_command_1::CANFDMux.oCANFD0" color="0"/>
+    <ConnectionShape InstanceName="send_brake_acceleration_command_1::CANFDMux.oCANFD1" color="0"/>
+    <ConnectionShape InstanceName="send_brake_acceleration_command_1::CANFrameViewer_1.input0" color="0"/>
+    <ConnectionShape InstanceName="send_brake_acceleration_command_1::CANFrameViewer_1.input1" color="0"/>
+    <ConnectionShape InstanceName="send_brake_acceleration_command_1::DIDDecoder.ReponseFrames" color="0"/>
+    <ConnectionShape InstanceName="send_brake_acceleration_command_1::DIDRequest.ContRequest" color="0"/>
+    <ConnectionShape InstanceName="send_brake_acceleration_command_1::DIDRequest.TriggerRequest" color="0"/>
+    <ConnectionShape InstanceName="send_lane_cenntering_indication_1::AuthSrlDat34_1_1.ARCTrigger" color="0"/>
+    <ConnectionShape InstanceName="send_lane_cenntering_indication_1::AuthSrlDat34_1_1.Filler" color="0"/>
+    <ConnectionShape InstanceName="send_lane_cenntering_indication_1::AuthSrlDat34_1_1.LnCntrCtlIndReqAuth" color="0"/>
+    <ConnectionShape InstanceName="send_lane_cenntering_indication_1::AuthSrlDat34_1_1.LnCntrVehStopdAuth" color="0"/>
+    <ConnectionShape InstanceName="send_lane_cenntering_indication_1::AuthSrlDat34_1_1.LnCntrWrnExtdIndReqAuth" color="0"/>
+    <ConnectionShape InstanceName="send_lane_cenntering_indication_1::AuthSrlDat34_1_1.LnFllwFltIndcdAtBrkEnAuth" color="0"/>
+    <ConnectionShape InstanceName="send_lane_cenntering_indication_1::AuthSrlDat34_1_1.LnFllwgGenChEvntStatAuth" color="0"/>
+    <ConnectionShape InstanceName="send_lane_cenntering_indication_1::AuthSrlDat34_1_1.LnFllwgLHSChEvntStatAuth" color="0"/>
+    <ConnectionShape InstanceName="send_lane_cenntering_indication_1::AuthSrlDat34_1_1.LnFllwgRHSChEvntStatAuth" color="0"/>
+    <ConnectionShape InstanceName="send_lane_cenntering_indication_1::AuthSrlDat34_1_1.SetAntireplayCount" color="0"/>
+    <ConnectionShape InstanceName="send_lane_cenntering_indication_1::AuthSrlDat34_1_1.SrrndVsnRLSModeCmdAuth" color="0"/>
+    <ConnectionShape InstanceName="send_lane_cenntering_indication_1::AuthSrlDat34_1_1.TriggerPCSM" color="0"/>
+    <ConnectionShape InstanceName="send_lane_cenntering_indication_1::CANFDMux_1_1.oCANFD0" color="0"/>
+    <ConnectionShape InstanceName="send_lane_cenntering_indication_1::CANFDMux_1_1.oCANFD1" color="0"/>
+    <ConnectionShape InstanceName="send_lane_cenntering_indication_1::DIDDecoder_1_1.ReponseFrames" color="0"/>
+    <ConnectionShape InstanceName="send_lane_cenntering_indication_1::DIDRequest.ContRequest" color="0"/>
+    <ConnectionShape InstanceName="send_lane_cenntering_indication_1::DIDRequest.TriggerRequest" color="0"/>
+    <ConnectionShape InstanceName="send_lane_cenntering_indication_1::DIDRequest_1_1.ContRequest" color="0"/>
+    <ConnectionShape InstanceName="send_lane_cenntering_indication_1::DIDRequest_1_1.TriggerRequest" color="0"/>
+    <ConnectionShape InstanceName="send_steering_torque_command_1.count_trigger" color="0"/>
+    <ConnectionShape InstanceName="send_steering_torque_command_1.enable" color="0"/>
+    <ConnectionShape InstanceName="send_steering_torque_command_1.torque" color="0"/>
+    <ConnectionShape InstanceName="send_steering_torque_command_1::AuthSrlDat160.AASILASStrgReqAFtr" color="0"/>
+    <ConnectionShape InstanceName="send_steering_torque_command_1::AuthSrlDat160.AASILASStrgReqAngVal" color="0"/>
+    <ConnectionShape InstanceName="send_steering_torque_command_1::AuthSrlDat160.AASILASStrgReqHiResTrqVal" color="0"/>
+    <ConnectionShape InstanceName="send_steering_torque_command_1::AuthSrlDat160.AASILASStrgReqLnFllwgRrStrgInhb" color="0"/>
+    <ConnectionShape InstanceName="send_steering_torque_command_1::AuthSrlDat160.AASILASStrgReqSts" color="0"/>
+    <ConnectionShape InstanceName="send_steering_torque_command_1::AuthSrlDat160.AASILASStrgReqTyp" color="0"/>
+    <ConnectionShape InstanceName="send_steering_torque_command_1::AuthSrlDat160.ARCTrigger" color="0"/>
+    <ConnectionShape InstanceName="send_steering_torque_command_1::AuthSrlDat160.Filler" color="0"/>
+    <ConnectionShape InstanceName="send_steering_torque_command_1::AuthSrlDat160.SetAntireplayCount" color="0"/>
+    <ConnectionShape InstanceName="send_steering_torque_command_1::AuthSrlDat160.TriggerPCSM" color="0"/>
+    <ConnectionShape InstanceName="send_steering_torque_command_1::AuthSrlDat160_1_1.AASILASStrgReqAFtr" color="0"/>
+    <ConnectionShape InstanceName="send_steering_torque_command_1::AuthSrlDat160_1_1.AASILASStrgReqAngVal" color="0"/>
+    <ConnectionShape InstanceName="send_steering_torque_command_1::AuthSrlDat160_1_1.AASILASStrgReqHiResTrqVal" color="0"/>
+    <ConnectionShape InstanceName="send_steering_torque_command_1::AuthSrlDat160_1_1.AASILASStrgReqLnFllwgRrStrgInhb" color="0"/>
+    <ConnectionShape InstanceName="send_steering_torque_command_1::AuthSrlDat160_1_1.AASILASStrgReqSts" color="0"/>
+    <ConnectionShape InstanceName="send_steering_torque_command_1::AuthSrlDat160_1_1.AASILASStrgReqTyp" color="0"/>
+    <ConnectionShape InstanceName="send_steering_torque_command_1::AuthSrlDat160_1_1.ARCTrigger" color="0"/>
+    <ConnectionShape InstanceName="send_steering_torque_command_1::AuthSrlDat160_1_1.Filler" color="0"/>
+    <ConnectionShape InstanceName="send_steering_torque_command_1::AuthSrlDat160_1_1.TriggerPCSM" color="0"/>
+    <ConnectionShape InstanceName="send_steering_torque_command_1::CANFDMux.oCANFD0" color="0"/>
+    <ConnectionShape InstanceName="send_steering_torque_command_1::CANFDMux.oCANFD1" color="0"/>
+    <ConnectionShape InstanceName="send_steering_torque_command_1::DIDDecoder.ReponseFrames" color="0"/>
+    <ConnectionShape InstanceName="send_steering_torque_command_1::DIDRequest.ContRequest" color="0"/>
+    <ConnectionShape InstanceName="send_steering_torque_command_1::DIDRequest.TriggerRequest" color="0"/>
+    <ConnectionShape InstanceName="send_steering_torque_command_1::DIDRequest_1.ContRequest" color="0"/>
+    <ConnectionShape InstanceName="SetSpeedOn.i_trigger" color="0"/>
+    <ConnectionShape InstanceName="socketcan2_1_2.i_frame" color="0"/>
+    <ConnectionShape InstanceName="socketcan2_1_2_1.i_frame" color="0"/>
+    <ConnectionShape InstanceName="socketcan2_2.i_frame" color="0"/>
+    <ConnectionShape InstanceName="socketcan2_fd.i_frame" color="0"/>
+    <ConnectionShape InstanceName="Splitter_1.input" color="0"/>
+    <ConnectionShape InstanceName="Splitter_2.input" color="0"/>
+    <ConnectionShape InstanceName="switcher_1_1.index" color="0"/>
+    <ConnectionShape InstanceName="switcher_1_1.input_1" color="0"/>
+  </RTBoardView>
+</RTMapsDiagram>

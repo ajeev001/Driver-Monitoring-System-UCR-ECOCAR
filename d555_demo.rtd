@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RTMapsDiagram version="4.8.0" EngineVersion="4.11" xmlns="http://schemas.intempora.com/RTMaps/2011/RTMapsFiles" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.intempora.com/RTMaps/2011/RTMapsFiles http://www.intempora.com/schemas/RTMaps/2011/RTMapsDiagram.xsd">
+  <RequiredPackages>
+    <File Version="2.4.1"><![CDATA[D:/ProgramFiles/Intempora/RTMaps 4/packages/rtmaps_foxglove/rtmaps_foxglove.pck]]><Relative><![CDATA[%RTMAPS_INSTDIR%/packages/rtmaps_foxglove/rtmaps_foxglove.pck]]></Relative></File>
+    <File Version="4.4.7"><![CDATA[D:/ProgramFiles/Intempora/RTMaps 4/packages/rtmaps_python_bridge/rtmaps_python_bridge.pck]]><Relative><![CDATA[%RTMAPS_INSTDIR%/packages/rtmaps_python_bridge/rtmaps_python_bridge.pck]]></Relative></File>
+  </RequiredPackages>
+  <EngineProperties>
+    <Property LongName="Engine.startTimespeed" Type="1">1000</Property>
+    <Property LongName="Engine.startTime" Type="1">0</Property>
+    <Property LongName="Engine.session" Type="3"><![CDATA[unspecified]]></Property>
+    <Property LongName="Engine.recordingAtStart" Type="0">true</Property>
+    <Property LongName="Engine.recording" Type="0">true</Property>
+    <Property LongName="Engine.sequentialStart" Type="0">false</Property>
+    <Property LongName="Engine.shutdownTimeout" Type="1">10000000</Property>
+    <Property LongName="Engine.autoDetectStartTime" Type="0">true</Property>
+    <Property LongName="Engine.coreFunctionsToSaveInDiag" Type="4"><![CDATA[0|-1]]></Property>
+    <Property LongName="Engine.useUTCTimeReference" Type="0">false</Property>
+    <Property LongName="Engine.fastForwardThreshold" Type="1">2000</Property>
+    <Property LongName="Engine.fastRewindThreshold" Type="1">-2000</Property>
+    <Property LongName="Engine.priorityClass" Type="4"><![CDATA[3|0|Shared Time|Preemptive|Auto]]></Property>
+    <Property LongName="Engine.posixTimerThread" Type="4"><![CDATA[3|0|Auto|Timer Interval|Real Time Clock]]></Property>
+    <Property LongName="Engine.posixRealTimeClockIrqFrequency" Type="4"><![CDATA[4|0|1024|2048|4096|8192]]></Property>
+    <Property LongName="Engine.posixPreemptiveSchedulingPolicy" Type="4"><![CDATA[2|0|FIFO|Round Robin]]></Property>
+    <Property LongName="Engine.windowsUsePerformanceCounter" Type="0">true</Property>
+  </EngineProperties>
+  <ClocksManagement>
+    <Property LongName="ClocksManagement.activeClock" Type="4"><![CDATA[1|0|RTMaps_standard_clock]]></Property>
+  </ClocksManagement>
+  <Component InstanceName="Dashboard_1" Model="Dashboard" Version="1.7.1" x="1016" y="240" z="0">
+    <Input LongName="Dashboard_1.overlayout" Name="overlayout">
+      <Property LongName="Dashboard_1.overlayout.readerType" Type="1">0</Property>
+      <Property LongName="Dashboard_1.overlayout.subsampling" Type="1">1</Property>
+    </Input>
+    <Input LongName="Dashboard_1.image" Name="image">
+      <Property LongName="Dashboard_1.image.readerType" Type="1">0</Property>
+      <Property LongName="Dashboard_1.image.subsampling" Type="1">1</Property>
+    </Input>
+    <Input LongName="Dashboard_1.latency" Name="latency">
+      <Property LongName="Dashboard_1.latency.readerType" Type="1">0</Property>
+      <Property LongName="Dashboard_1.latency.subsampling" Type="1">1</Property>
+    </Input>
+    <Input LongName="Dashboard_1.latency2" Name="latency2">
+      <Property LongName="Dashboard_1.latency2.readerType" Type="1">0</Property>
+      <Property LongName="Dashboard_1.latency2.subsampling" Type="1">1</Property>
+    </Input>
+    <Input LongName="Dashboard_1.gaze_point_u" Name="gaze_point_u">
+      <Property LongName="Dashboard_1.gaze_point_u.readerType" Type="1">0</Property>
+      <Property LongName="Dashboard_1.gaze_point_u.subsampling" Type="1">1</Property>
+    </Input>
+    <Input LongName="Dashboard_1.gaze_point_v" Name="gaze_point_v">
+      <Property LongName="Dashboard_1.gaze_point_v.readerType" Type="1">0</Property>
+      <Property LongName="Dashboard_1.gaze_point_v.subsampling" Type="1">1</Property>
+    </Input>
+    <Input LongName="Dashboard_1.confidence" Name="confidence">
+      <Property LongName="Dashboard_1.confidence.readerType" Type="1">0</Property>
+      <Property LongName="Dashboard_1.confidence.subsampling" Type="1">1</Property>
+    </Input>
+    <Input LongName="Dashboard_1.timestamp" Name="timestamp">
+      <Property LongName="Dashboard_1.timestamp.readerType" Type="1">0</Property>
+      <Property LongName="Dashboard_1.timestamp.subsampling" Type="1">1</Property>
+    </Input>
+    <Property LongName="Dashboard_1.guard_begin" Type="0" SubType="128">true</Property>
+    <Property LongName="Dashboard_1.streaming" Type="0">true</Property>
+    <Property LongName="Dashboard_1.mcap" Type="0">false</Property>
+    <ReadOnlyProperty LongName="Dashboard_1.subsec_begin_2" Type="3" SubType="256"><![CDATA[Streaming]]></ReadOnlyProperty>
+    <Property LongName="Dashboard_1.server_name" Type="3"><![CDATA[RTMaps data server]]></Property>
+    <Property LongName="Dashboard_1.server_port" Type="1">8765</Property>
+    <Property LongName="Dashboard_1.output_subscribers" Type="0">false</Property>
+    <ReadOnlyProperty LongName="Dashboard_1.subsec_end_4" Type="0" SubType="512">true</ReadOnlyProperty>
+    <ReadOnlyProperty LongName="Dashboard_1.subsec_begin_13" Type="3" SubType="256"><![CDATA[Inputs]]></ReadOnlyProperty>
+    <Property LongName="Dashboard_1.p_input_count" Type="1">8</Property>
+    <ReadOnlyProperty LongName="Dashboard_1.inputs_0_subsec_begin_15" Type="3" SubType="256"><![CDATA[Channel 0]]></ReadOnlyProperty>
+    <Property LongName="Dashboard_1.inputs_0_topic_name" Type="3"><![CDATA[overlayout]]></Property>
+    <Property LongName="Dashboard_1.inputs_0_input_name" Type="3"><![CDATA[overlayout]]></Property>
+    <Property LongName="Dashboard_1.inputs_0_msg_type" Type="4"><![CDATA[16|4|Integer(s)|Float(s)|Text|Logs|Image|Point cloud (XYZ)|Point cloud (XYZRGB)|GPS coordinates|Drawing objects|Camera calibration|3D scene|GeoJSON|Misc. Protobuf|Frame transform|Grid (3D oriented image)|Audio]]></Property>
+    <Property LongName="Dashboard_1.inputs_0_image_source" Type="4"><![CDATA[2|0|Individual frames|H264 stream]]></Property>
+    <Property LongName="Dashboard_1.inputs_0_frame_id" Type="3"><![CDATA[]]></Property>
+    <ReadOnlyProperty LongName="Dashboard_1.inputs_0_subsec_end_33" Type="0" SubType="512">true</ReadOnlyProperty>
+    <ReadOnlyProperty LongName="Dashboard_1.inputs_1_subsec_begin_15" Type="3" SubType="256"><![CDATA[Channel 1]]></ReadOnlyProperty>
+    <Property LongName="Dashboard_1.inputs_1_topic_name" Type="3"><![CDATA[image]]></Property>
+    <Property LongName="Dashboard_1.inputs_1_input_name" Type="3"><![CDATA[image]]></Property>
+    <Property LongName="Dashboard_1.inputs_1_msg_type" Type="4"><![CDATA[16|4|Integer(s)|Float(s)|Text|Logs|Image|Point cloud (XYZ)|Point cloud (XYZRGB)|GPS coordinates|Drawing objects|Camera calibration|3D scene|GeoJSON|Misc. Protobuf|Frame transform|Grid (3D oriented image)|Audio]]></Property>
+    <Property LongName="Dashboard_1.inputs_1_image_source" Type="4"><![CDATA[2|0|Individual frames|H264 stream]]></Property>
+    <Property LongName="Dashboard_1.inputs_1_frame_id" Type="3"><![CDATA[]]></Property>
+    <ReadOnlyProperty LongName="Dashboard_1.inputs_1_subsec_end_33" Type="0" SubType="512">true</ReadOnlyProperty>
+    <ReadOnlyProperty LongName="Dashboard_1.inputs_2_subsec_begin_15" Type="3" SubType="256"><![CDATA[Channel 2]]></ReadOnlyProperty>
+    <Property LongName="Dashboard_1.inputs_2_topic_name" Type="3"><![CDATA[latency]]></Property>
+    <Property LongName="Dashboard_1.inputs_2_input_name" Type="3"><![CDATA[latency]]></Property>
+    <Property LongName="Dashboard_1.inputs_2_msg_type" Type="4"><![CDATA[16|1|Integer(s)|Float(s)|Text|Logs|Image|Point cloud (XYZ)|Point cloud (XYZRGB)|GPS coordinates|Drawing objects|Camera calibration|3D scene|GeoJSON|Misc. Protobuf|Frame transform|Grid (3D oriented image)|Audio]]></Property>
+    <ReadOnlyProperty LongName="Dashboard_1.inputs_2_subsec_end_33" Type="0" SubType="512">true</ReadOnlyProperty>
+    <ReadOnlyProperty LongName="Dashboard_1.inputs_3_subsec_begin_15" Type="3" SubType="256"><![CDATA[Channel 3]]></ReadOnlyProperty>
+    <Property LongName="Dashboard_1.inputs_3_topic_name" Type="3"><![CDATA[latency2]]></Property>
+    <Property LongName="Dashboard_1.inputs_3_input_name" Type="3"><![CDATA[latency2]]></Property>
+    <Property LongName="Dashboard_1.inputs_3_msg_type" Type="4"><![CDATA[16|1|Integer(s)|Float(s)|Text|Logs|Image|Point cloud (XYZ)|Point cloud (XYZRGB)|GPS coordinates|Drawing objects|Camera calibration|3D scene|GeoJSON|Misc. Protobuf|Frame transform|Grid (3D oriented image)|Audio]]></Property>
+    <ReadOnlyProperty LongName="Dashboard_1.inputs_3_subsec_end_33" Type="0" SubType="512">true</ReadOnlyProperty>
+    <ReadOnlyProperty LongName="Dashboard_1.inputs_4_subsec_begin_15" Type="3" SubType="256"><![CDATA[Channel 4]]></ReadOnlyProperty>
+    <Property LongName="Dashboard_1.inputs_4_topic_name" Type="3"><![CDATA[gaze_point_u]]></Property>
+    <Property LongName="Dashboard_1.inputs_4_input_name" Type="3"><![CDATA[gaze_point_u]]></Property>
+    <Property LongName="Dashboard_1.inputs_4_msg_type" Type="4"><![CDATA[16|1|Integer(s)|Float(s)|Text|Logs|Image|Point cloud (XYZ)|Point cloud (XYZRGB)|GPS coordinates|Drawing objects|Camera calibration|3D scene|GeoJSON|Misc. Protobuf|Frame transform|Grid (3D oriented image)|Audio]]></Property>
+    <ReadOnlyProperty LongName="Dashboard_1.inputs_4_subsec_end_33" Type="0" SubType="512">true</ReadOnlyProperty>
+    <ReadOnlyProperty LongName="Dashboard_1.inputs_5_subsec_begin_15" Type="3" SubType="256"><![CDATA[Channel 5]]></ReadOnlyProperty>
+    <Property LongName="Dashboard_1.inputs_5_topic_name" Type="3"><![CDATA[gaze_point_v]]></Property>
+    <Property LongName="Dashboard_1.inputs_5_input_name" Type="3"><![CDATA[gaze_point_v]]></Property>
+    <Property LongName="Dashboard_1.inputs_5_msg_type" Type="4"><![CDATA[16|1|Integer(s)|Float(s)|Text|Logs|Image|Point cloud (XYZ)|Point cloud (XYZRGB)|GPS coordinates|Drawing objects|Camera calibration|3D scene|GeoJSON|Misc. Protobuf|Frame transform|Grid (3D oriented image)|Audio]]></Property>
+    <ReadOnlyProperty LongName="Dashboard_1.inputs_5_subsec_end_33" Type="0" SubType="512">true</ReadOnlyProperty>
+    <ReadOnlyProperty LongName="Dashboard_1.inputs_6_subsec_begin_15" Type="3" SubType="256"><![CDATA[Channel 6]]></ReadOnlyProperty>
+    <Property LongName="Dashboard_1.inputs_6_topic_name" Type="3"><![CDATA[confidence]]></Property>
+    <Property LongName="Dashboard_1.inputs_6_input_name" Type="3"><![CDATA[confidence]]></Property>
+    <Property LongName="Dashboard_1.inputs_6_msg_type" Type="4"><![CDATA[16|1|Integer(s)|Float(s)|Text|Logs|Image|Point cloud (XYZ)|Point cloud (XYZRGB)|GPS coordinates|Drawing objects|Camera calibration|3D scene|GeoJSON|Misc. Protobuf|Frame transform|Grid (3D oriented image)|Audio]]></Property>
+    <ReadOnlyProperty LongName="Dashboard_1.inputs_6_subsec_end_33" Type="0" SubType="512">true</ReadOnlyProperty>
+    <ReadOnlyProperty LongName="Dashboard_1.inputs_7_subsec_begin_15" Type="3" SubType="256"><![CDATA[Channel 7]]></ReadOnlyProperty>
+    <Property LongName="Dashboard_1.inputs_7_topic_name" Type="3"><![CDATA[timestamp]]></Property>
+    <Property LongName="Dashboard_1.inputs_7_input_name" Type="3"><![CDATA[timestamp]]></Property>
+    <Property LongName="Dashboard_1.inputs_7_msg_type" Type="4"><![CDATA[16|1|Integer(s)|Float(s)|Text|Logs|Image|Point cloud (XYZ)|Point cloud (XYZRGB)|GPS coordinates|Drawing objects|Camera calibration|3D scene|GeoJSON|Misc. Protobuf|Frame transform|Grid (3D oriented image)|Audio]]></Property>
+    <ReadOnlyProperty LongName="Dashboard_1.inputs_7_subsec_end_33" Type="0" SubType="512">true</ReadOnlyProperty>
+    <ReadOnlyProperty LongName="Dashboard_1.subsec_end_35" Type="0" SubType="512">true</ReadOnlyProperty>
+    <ReadOnlyProperty LongName="Dashboard_1.subsec_begin_37" Type="3" SubType="256"><![CDATA[Outputs]]></ReadOnlyProperty>
+    <Property LongName="Dashboard_1.output_count" Type="1">0</Property>
+    <ReadOnlyProperty LongName="Dashboard_1.subsec_end_45" Type="0" SubType="512">true</ReadOnlyProperty>
+    <ReadOnlyProperty LongName="Dashboard_1.subsec_begin_47" Type="3" SubType="256"><![CDATA[Misc.]]></ReadOnlyProperty>
+    <Property LongName="Dashboard_1.n_threads" Type="1">24</Property>
+    <Property LongName="Dashboard_1.ignore_unlistened" Type="0">true</Property>
+    <ReadOnlyProperty LongName="Dashboard_1.subsec_end_49" Type="0" SubType="512">true</ReadOnlyProperty>
+    <Property LongName="Dashboard_1.guard_end" Type="0" SubType="128">true</Property>
+    <Property LongName="Dashboard_1.threaded" Type="0">true</Property>
+    <Property LongName="Dashboard_1.priority" Type="1">128</Property>
+    <Property LongName="Dashboard_1.autoStart" Type="0">true</Property>
+  </Component>
+  <Component InstanceName="PythonBridge_1" Model="PythonBridge" Version="4.4.7" x="392" y="216" z="0">
+    <Output LongName="PythonBridge_1.RGBOut" Name="RGBOut">
+      <Property LongName="PythonBridge_1.RGBOut.subsampling" Type="1">1</Property>
+      <Property LongName="PythonBridge_1.RGBOut.fifosize" Type="1">16</Property>
+      <Property LongName="PythonBridge_1.RGBOut.periodic" Type="0">false</Property>
+    </Output>
+    <Output LongName="PythonBridge_1.DepthOut" Name="DepthOut">
+      <Property LongName="PythonBridge_1.DepthOut.subsampling" Type="1">1</Property>
+      <Property LongName="PythonBridge_1.DepthOut.fifosize" Type="1">16</Property>
+      <Property LongName="PythonBridge_1.DepthOut.periodic" Type="0">false</Property>
+    </Output>
+    <Property LongName="PythonBridge_1.guard_begin" Type="0" SubType="128">true</Property>
+    <Property LongName="PythonBridge_1.internalInputs" Type="3" SubType="128"><![CDATA[]]></Property>
+    <Property LongName="PythonBridge_1.internalOutputs" Type="3" SubType="128"><![CDATA[RGBOut;18==;0#DepthOut;18==;0]]></Property>
+    <Property LongName="PythonBridge_1.internalProperties" Type="3" SubType="128"><![CDATA[Serial_Number||13||||0]]></Property>
+    <ReadOnlyProperty LongName="PythonBridge_1.advance_begin_configuration" Type="3" SubType="256"><![CDATA[Advanced Configuration]]></ReadOnlyProperty>
+    <Property LongName="PythonBridge_1.deathBehavior" Type="4"><![CDATA[3|1|WAIT FOR PROCESS INDEFINITELY|KILL PROCESS AFTER TIMEOUT (5sec)|START ANOTHER PROCESS]]></Property>
+    <Property LongName="PythonBridge_1.capturePythonPrint" Type="0">true</Property>
+    <Property LongName="PythonBridge_1.useTCPOnly" Type="0">false</Property>
+    <ReadOnlyProperty LongName="PythonBridge_1.pythonPID" Type="1">24904</ReadOnlyProperty>
+    <Property LongName="PythonBridge_1.FileSHMSize" Type="1">15000000</Property>
+    <Property LongName="PythonBridge_1.useNuitka" Type="0">false</Property>
+    <ReadOnlyProperty LongName="PythonBridge_1.advance_end_configuration" Type="0" SubType="512">false</ReadOnlyProperty>
+    <ReadOnlyProperty LongName="PythonBridge_1.basic_begin_configuration" Type="3" SubType="256"><![CDATA[Basic Configuration]]></ReadOnlyProperty>
+    <Property LongName="PythonBridge_1.className" Type="3"><![CDATA[rtmaps_python]]></Property>
+    <Property LongName="PythonBridge_1.pythonExecutable" Type="3" SubType="16"><![CDATA[]]></Property>
+    <Property LongName="PythonBridge_1.pythonFilename" Type="3" SubType="80"><![CDATA[D:\ECOCAR\Github\EcoCAR-CAV\Sensor\Realsense\d555_depthRGB_pythonbridge.py]]><Relative><![CDATA[%RTMAPS_DIAGRAMDIR%/../../Sensor/Realsense/d555_depthRGB_pythonbridge.py]]></Relative></Property>
+    <Property LongName="PythonBridge_1.readingPolicy" Type="4"><![CDATA[5|2|Synchro|Reactive|Sampling|Triggered by First Input|Periodic Resampling Based on Timestamps]]></Property>
+    <Property LongName="PythonBridge_1.samplingPeriod" Type="1" SubType="1">33333</Property>
+    <Property LongName="PythonBridge_1.inputsBehavior" Type="4"><![CDATA[2|0|AllowEmptyInputs|Wait4AllInputs]]></Property>
+    <ReadOnlyProperty LongName="PythonBridge_1.basic_end_configuration" Type="0" SubType="512">true</ReadOnlyProperty>
+    <ReadOnlyProperty LongName="PythonBridge_1.userSubsection" Type="3" SubType="256"><![CDATA[User Properties]]></ReadOnlyProperty>
+    <Property LongName="PythonBridge_1.Serial_Number" Type="3"><![CDATA[]]></Property>
+    <Property LongName="PythonBridge_1.guard_end" Type="0" SubType="128">true</Property>
+    <ReadOnlyProperty LongName="PythonBridge_1.userSubsectionEnd" Type="0" SubType="512">true</ReadOnlyProperty>
+    <Property LongName="PythonBridge_1.threaded" Type="0">true</Property>
+    <Property LongName="PythonBridge_1.priority" Type="1">128</Property>
+    <Property LongName="PythonBridge_1.autoStart" Type="0">true</Property>
+  </Component>
+  <Component InstanceName="PythonBridge_2" Model="PythonBridge" Version="4.4.7" x="664" y="328" z="0">
+    <Input LongName="PythonBridge_2.RGBIn" Name="RGBIn">
+      <Property LongName="PythonBridge_2.RGBIn.readerType" Type="1">4</Property>
+      <Property LongName="PythonBridge_2.RGBIn.subsampling" Type="1">1</Property>
+    </Input>
+    <Output LongName="PythonBridge_2.gaze_point_u" Name="gaze_point_u">
+      <Property LongName="PythonBridge_2.gaze_point_u.subsampling" Type="1">1</Property>
+      <Property LongName="PythonBridge_2.gaze_point_u.fifosize" Type="1">16</Property>
+      <Property LongName="PythonBridge_2.gaze_point_u.periodic" Type="0">false</Property>
+    </Output>
+    <Output LongName="PythonBridge_2.gaze_point_v" Name="gaze_point_v">
+      <Property LongName="PythonBridge_2.gaze_point_v.subsampling" Type="1">1</Property>
+      <Property LongName="PythonBridge_2.gaze_point_v.fifosize" Type="1">16</Property>
+      <Property LongName="PythonBridge_2.gaze_point_v.periodic" Type="0">false</Property>
+    </Output>
+    <Output LongName="PythonBridge_2.confidence" Name="confidence">
+      <Property LongName="PythonBridge_2.confidence.subsampling" Type="1">1</Property>
+      <Property LongName="PythonBridge_2.confidence.fifosize" Type="1">16</Property>
+      <Property LongName="PythonBridge_2.confidence.periodic" Type="0">false</Property>
+    </Output>
+    <Output LongName="PythonBridge_2.timestamp" Name="timestamp">
+      <Property LongName="PythonBridge_2.timestamp.subsampling" Type="1">1</Property>
+      <Property LongName="PythonBridge_2.timestamp.fifosize" Type="1">16</Property>
+      <Property LongName="PythonBridge_2.timestamp.periodic" Type="0">false</Property>
+    </Output>
+    <Output LongName="PythonBridge_2.lat_model_ms" Name="lat_model_ms">
+      <Property LongName="PythonBridge_2.lat_model_ms.subsampling" Type="1">1</Property>
+      <Property LongName="PythonBridge_2.lat_model_ms.fifosize" Type="1">16</Property>
+      <Property LongName="PythonBridge_2.lat_model_ms.periodic" Type="0">false</Property>
+    </Output>
+    <Output LongName="PythonBridge_2.lat_end2end_ms" Name="lat_end2end_ms">
+      <Property LongName="PythonBridge_2.lat_end2end_ms.subsampling" Type="1">1</Property>
+      <Property LongName="PythonBridge_2.lat_end2end_ms.fifosize" Type="1">16</Property>
+      <Property LongName="PythonBridge_2.lat_end2end_ms.periodic" Type="0">false</Property>
+    </Output>
+    <Output LongName="PythonBridge_2.GazeOverlayOut" Name="GazeOverlayOut">
+      <Property LongName="PythonBridge_2.GazeOverlayOut.subsampling" Type="1">1</Property>
+      <Property LongName="PythonBridge_2.GazeOverlayOut.fifosize" Type="1">16</Property>
+      <Property LongName="PythonBridge_2.GazeOverlayOut.periodic" Type="0">false</Property>
+    </Output>
+    <Property LongName="PythonBridge_2.guard_begin" Type="0" SubType="128">true</Property>
+    <Property LongName="PythonBridge_2.internalInputs" Type="3" SubType="128"><![CDATA[RGBIn;18==]]></Property>
+    <Property LongName="PythonBridge_2.internalOutputs" Type="3" SubType="128"><![CDATA[gaze_point_u;11==;0#gaze_point_v;11==;0#confidence;11==;0#timestamp;11==;0#lat_model_ms;11==;0#lat_end2end_ms;11==;0#GazeOverlayOut;18==;0]]></Property>
+    <Property LongName="PythonBridge_2.internalProperties" Type="3" SubType="128"><![CDATA[]]></Property>
+    <ReadOnlyProperty LongName="PythonBridge_2.advance_begin_configuration" Type="3" SubType="256"><![CDATA[Advanced Configuration]]></ReadOnlyProperty>
+    <Property LongName="PythonBridge_2.deathBehavior" Type="4"><![CDATA[3|1|WAIT FOR PROCESS INDEFINITELY|KILL PROCESS AFTER TIMEOUT (5sec)|START ANOTHER PROCESS]]></Property>
+    <Property LongName="PythonBridge_2.capturePythonPrint" Type="0">true</Property>
+    <Property LongName="PythonBridge_2.useTCPOnly" Type="0">false</Property>
+    <ReadOnlyProperty LongName="PythonBridge_2.pythonPID" Type="1">8352</ReadOnlyProperty>
+    <Property LongName="PythonBridge_2.FileSHMSize" Type="1">15000000</Property>
+    <Property LongName="PythonBridge_2.useNuitka" Type="0">false</Property>
+    <ReadOnlyProperty LongName="PythonBridge_2.advance_end_configuration" Type="0" SubType="512">false</ReadOnlyProperty>
+    <ReadOnlyProperty LongName="PythonBridge_2.basic_begin_configuration" Type="3" SubType="256"><![CDATA[Basic Configuration]]></ReadOnlyProperty>
+    <Property LongName="PythonBridge_2.className" Type="3"><![CDATA[rtmaps_python]]></Property>
+    <Property LongName="PythonBridge_2.pythonExecutable" Type="3" SubType="16"><![CDATA[D:\ECOCAR\Github\EcoCAR-CAV\Sensor\Realsense\.venv\Scripts\pythonw.exe]]><Relative><![CDATA[%RTMAPS_DIAGRAMDIR%/../../Sensor/Realsense/.venv/Scripts/pythonw.exe]]></Relative></Property>
+    <Property LongName="PythonBridge_2.pythonFilename" Type="3" SubType="80"><![CDATA[D:/ECOCAR/Github/EcoCAR-CAV/Driver Monitoring System/ETH-XGaze/d555_demo.py]]><Relative><![CDATA[%RTMAPS_DIAGRAMDIR%/d555_demo.py]]></Relative></Property>
+    <Property LongName="PythonBridge_2.readingPolicy" Type="4"><![CDATA[5|2|Synchro|Reactive|Sampling|Triggered by First Input|Periodic Resampling Based on Timestamps]]></Property>
+    <Property LongName="PythonBridge_2.samplingPeriod" Type="1" SubType="1">33333</Property>
+    <Property LongName="PythonBridge_2.inputsBehavior" Type="4"><![CDATA[2|0|AllowEmptyInputs|Wait4AllInputs]]></Property>
+    <ReadOnlyProperty LongName="PythonBridge_2.basic_end_configuration" Type="0" SubType="512">true</ReadOnlyProperty>
+    <ReadOnlyProperty LongName="PythonBridge_2.userSubsection" Type="3" SubType="256"><![CDATA[User Properties]]></ReadOnlyProperty>
+    <Property LongName="PythonBridge_2.guard_end" Type="0" SubType="128">true</Property>
+    <ReadOnlyProperty LongName="PythonBridge_2.userSubsectionEnd" Type="0" SubType="512">true</ReadOnlyProperty>
+    <Property LongName="PythonBridge_2.threaded" Type="0">true</Property>
+    <Property LongName="PythonBridge_2.priority" Type="1">128</Property>
+    <Property LongName="PythonBridge_2.autoStart" Type="0">true</Property>
+  </Component>
+  <Connection Output="PythonBridge_2.GazeOverlayOut" Input="Dashboard_1.overlayout"/>
+  <Connection Output="PythonBridge_2.lat_model_ms" Input="Dashboard_1.latency"/>
+  <Connection Output="PythonBridge_2.lat_end2end_ms" Input="Dashboard_1.latency2"/>
+  <Connection Output="PythonBridge_2.gaze_point_u" Input="Dashboard_1.gaze_point_u"/>
+  <Connection Output="PythonBridge_2.gaze_point_v" Input="Dashboard_1.gaze_point_v"/>
+  <Connection Output="PythonBridge_2.confidence" Input="Dashboard_1.confidence"/>
+  <Connection Output="PythonBridge_2.timestamp" Input="Dashboard_1.timestamp"/>
+  <Connection Output="PythonBridge_1.RGBOut" Input="PythonBridge_2.RGBIn"/>
+  <RTBoardView ID="JavaStudio1.0">
+    <ConnectionShape InstanceName="Dashboard_1.confidence" color="0"/>
+    <ConnectionShape InstanceName="Dashboard_1.gaze_point_u" color="0"/>
+    <ConnectionShape InstanceName="Dashboard_1.gaze_point_v" color="0"/>
+    <ConnectionShape InstanceName="Dashboard_1.latency" color="0"/>
+    <ConnectionShape InstanceName="Dashboard_1.latency2" color="0"/>
+    <ConnectionShape InstanceName="Dashboard_1.overlayout" color="0"/>
+    <ConnectionShape InstanceName="Dashboard_1.timestamp" color="0"/>
+    <ConnectionShape InstanceName="PythonBridge_2.RGBIn" color="0"/>
+  </RTBoardView>
+</RTMapsDiagram>
